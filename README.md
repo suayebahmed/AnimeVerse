@@ -2,3 +2,4 @@
 ## Team Members
 
 - Suayeb Ahmed
+- Dionas Jordan
