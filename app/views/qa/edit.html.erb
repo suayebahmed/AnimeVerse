@@ -1,0 +1,6 @@
+<h1>Edit Question</h1>
+<%= bootstrap_form_with model: @question, url: qa_show_path(@question), method: :patch, data: { turbo: false } do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :desc %>
+  <%= f.submit %>
+<% end %>
