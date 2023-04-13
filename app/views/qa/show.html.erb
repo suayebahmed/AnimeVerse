@@ -6,18 +6,15 @@
         <p class="lead"><%= @question.desc %></p>
     </div>
     <div class="d-flex flex-wrap">
-        <%# <button class="btn btn-outline-primary rounded btn-lg mx-3">Edit</button> %>
         <%= link_to "Edit", edit_qa_path(@question), class:'btn btn-outline-primary rounded btn-lg mx-3' %>
-        <%# <button class="btn btn-outline-danger rounded btn-lg">Delete</button> %>
         <%= button_to "Delete", qa_show_path(@question), class:"btn btn-outline-danger btn-lg", method: :delete, data: { turbo: false } %>
     </div>
 </div>
 
-<%= link_to 'New Comment', new_answer_path, class:'btn btn-primary mb-3' %>
+<%# <%= link_to 'New Comment', new_answer_path, class:'btn btn-primary mb-3' %> %>
 
 <% @question.answers.each do |answer| %>
     <div class="alert alert-secondary p-4" role="alert">
         <%= answer.title %> | Edit | Delete
     </div>
 <% end %>
-  <%# This is a dark alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like. %>

@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-
   # Suayeb Ahmed Question page routes
   get 'qa', to: 'qa#index', as: 'qa'
   post 'qa', to: 'qa#create'
@@ -15,7 +14,4 @@ Rails.application.routes.draw do
   patch 'qa/:id', to: 'qa#update'
   delete 'qa/:id', to: 'qa#destroy'
 
-  # Suayeb Ahmed Answer Page routes
-  # post 'qa/:question_id/create', to: 'qa#create_answer'
-  #get 'qa/:question_id/new', to: 'answers#new', as: 'new_answer'
 end

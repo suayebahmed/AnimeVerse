@@ -50,25 +50,3 @@ class QaController < ApplicationController
     end
 
 end
-
-
-
-# These Controller for Answer Model
-
-# def new_answer
-#     @question = Question.find(params[:question_id])
-#     @answer = Answer.new
-#     render :new_answer
-# end
-
-# def create_answer
-#     @question = Question.find(params[:question_id])
-#     @answer = @question.answers.build(params.require(:answer).permit(:answer))
-#     if @answer.save
-#       flash[:success] = "Answer saved successfully"
-#       redirect_to qa_show_url(@question)
-#     else
-#       flash.now[:error] = "Answer could not be saved"
-#       render :new, status: :unprocessable_entity
-#     end
-# end
