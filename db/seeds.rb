@@ -5,3 +5,29 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+# Questions Seed
+q1 = Question.create!(
+    title: 'Which is the best Anime of 2022-23 season?',
+    desc: 'I want to know which one is the best anime from this season so that I can watch that anime. I am kinda confuse on so many animes.'
+)
+
+q1_answer1 = Answer.create!(
+    title: 'Demon Slayer',
+    question: q1
+)
+
+q1_answer2 = Answer.create!(
+    title: 'Suayeb\'s Sword',
+    question: q1
+)
+
+q2 = Question.create!(
+    title: 'Which is the best Anime of 2022-23 season?',
+    desc: 'I want to know which one is the best anime from this season so that I can watch that anime. I am kinda confuse on so many animes.'
+)
+
+q2_answer1 = Answer.create!(
+    title: 'Demon Martyr',
+    question: q2
+)

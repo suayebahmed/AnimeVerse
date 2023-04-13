@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: questions
+#
+#  id         :bigint           not null, primary key
+#  desc       :string
+#  title      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  title: MyString
+  desc: MyString
+
+two:
+  title: MyString
+  desc: MyString
