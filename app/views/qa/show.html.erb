@@ -11,10 +11,20 @@
     </div>
 </div>
 
-<%# <%= link_to 'New Comment', new_answer_path, class:'btn btn-primary mb-3' %> %>
+
+<%= link_to "New Answer", new_question_answers_path(@question), class: "btn btn-outline-primary btn-lg mb-3"%>
+
 
 <% @question.answers.each do |answer| %>
-    <div class="alert alert-secondary p-4" role="alert">
-        <%= answer.title %> | Edit | Delete
+    <div class="p-4 mb-3 border border-1 border-warning">
+        <div class="d-flex justify-content-between">
+            <p class="lead"><%= answer.title %></p>
+            <div>
+                <%= link_to 'edit', edit_question_answer_path(@question, answer), class: 'btn btn-outline-primary btn-sm' %>
+                <%= button_to 'delete', question_answer_path(@question, answer), method: :delete, data: { turbo: false }, class: 'btn btn-outline-danger btn-sm', form: { class: 'd-inline' } %>
+            </div>
+        </div>
+
+        
     </div>
 <% end %>

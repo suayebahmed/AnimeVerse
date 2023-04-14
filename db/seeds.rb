@@ -23,11 +23,11 @@ q1_answer2 = Answer.create!(
 )
 
 q2 = Question.create!(
-    title: 'Which is the best Anime of 2022-23 season?',
-    desc: 'I want to know which one is the best anime from this season so that I can watch that anime. I am kinda confuse on so many animes.'
+    title: 'Which anime series revolves around a boy who sells his soul to a demon??',
+    desc: 'I want to know Which anime series revolves around a boy who sells his soul to a demon?'
 )
 
 q2_answer1 = Answer.create!(
-    title: 'Demon Martyr',
+    title: 'Black Butler',
     question: q2
 )
