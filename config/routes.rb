@@ -14,4 +14,14 @@ Rails.application.routes.draw do
   patch 'qa/:id', to: 'qa#update'
   delete 'qa/:id', to: 'qa#destroy'
 
+
+  # Suayeb Ahmed Answer page routes
+  patch '/qa/:question_id/answers/:id', to: 'answers#update'
+  get '/qa/:question_id/answers/:id/edit', to: 'answers#edit', as: 'edit_question_answer'
+  post 'qa/:question_id/answers', to: 'answers#create'
+  get 'qa/:question_id/answers/new', to: 'answers#new', as: 'new_question_answers'
+  get 'qa/:question_id/answers', to: 'answers#index', as: 'question_answers'
+  delete '/qa/:question_id/answers/:id', to: 'answers#destroy'
+  get 'qa/:question_id/answers/:id', to: 'answers#show', as: 'question_answer'
+  
 end
