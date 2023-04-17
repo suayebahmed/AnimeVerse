@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :users
+  # Orlena user login_username
+  #devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
   # root "articles#index"
+  root 'home#welcome'
+  get 'welcome', to: 'home#welcome', as: 'welcome'
+
+  
+
 
   # Suayeb Ahmed Question page routes
   get 'qa', to: 'qa#index', as: 'qa'
