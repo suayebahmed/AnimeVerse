@@ -1,0 +1,17 @@
+<h1>Animes</h1>
+<table class="table table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @lists.each do |list| %>
+      <tr>
+        <td><%= link_to list.title, list_path(list) %></td>
+        <td><%= list.author %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
