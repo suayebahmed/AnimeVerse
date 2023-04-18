@@ -29,6 +29,14 @@ Rails.application.routes.draw do
   patch 'qa/:id', to: 'qa#update'
   delete 'qa/:id', to: 'qa#destroy'
 
+#<<<<<<< Omarcus123
+  # Omarcus Swims Jr 
+  #get 'lists', to: 'lists#home', as: 'lists'
+  get 'lists', to: 'lists#index', as: 'lists'
+  get 'lists/:id', to: 'lists#show', as: 'list'
+  
+
+=======
 #<<<<<<< Cons
   #Dionas Jordan Route Pages
 
@@ -49,6 +57,7 @@ Rails.application.routes.draw do
   patch '/conventions/:convention_id/ratings/:id', to: 'ratings#update'
   delete '/conventions/:convention_id/ratings/:id', to: 'ratings#destroy'
 =======
+#>>>>>>> main
 
   # Suayeb Ahmed Answer page routes
   patch '/qa/:question_id/answers/:id', to: 'answers#update'
