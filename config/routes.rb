@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :latests
   # Orlena user login_username
   #devise_for :users
   devise_for :users, controllers: { registrations: 'users/registrations' }

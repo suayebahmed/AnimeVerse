@@ -31,3 +31,17 @@ q2_answer1 = Answer.create!(
     title: 'Black Butler',
     question: q2
 )
+
+
+#users 
+admin = User.create!(
+    email: 'admin@mail.com',
+    username: 'Admin',
+    password: 'password'
+)
+
+user1 = User.create!(
+    email: 'orlena@mail.com',
+    username: 'Orlena',
+    password: 'password' 
+)
