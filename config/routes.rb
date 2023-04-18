@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :latests
 #<<<<<<< Cons
-  post '/rate' => 'rater#create', :as => 'rate'
-  devise_for :users
+  #post '/rate' => 'rater#create', :as => 'rate'
+  #devise_for :users
 #>>>>>>> main
 
   post '/rate' => 'rater#create', :as => 'rate'

@@ -6,33 +6,6 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-# Questions Seed
-q1 = Question.create!(
-    title: 'Which is the best Anime of 2022-23 season?',
-    desc: 'I want to know which one is the best anime from this season so that I can watch that anime. I am kinda confuse on so many animes.'
-)
-
-q1_answer1 = Answer.create!(
-    title: 'Demon Slayer',
-    question: q1
-)
-
-q1_answer2 = Answer.create!(
-    title: 'Suayeb\'s Sword',
-    question: q1
-)
-
-q2 = Question.create!(
-    title: 'Which anime series revolves around a boy who sells his soul to a demon??',
-    desc: 'I want to know Which anime series revolves around a boy who sells his soul to a demon?'
-)
-
-q2_answer1 = Answer.create!(
-    title: 'Black Butler',
-    question: q2
-)
-
-
 
 #users 
 admin = User.create!(
@@ -47,9 +20,48 @@ user1 = User.create!(
     password: 'password' 
 )
 
-news_post1 = Latest.create!(
-    description: 'Coming soon!'
+user2 = User.create!(
+    email: 'suayeb@email.com',
+    username: 'Suayeb',
+    password: 'password'
 )
+
+# Questions Seed
+q1 = Question.create!(
+    title: 'Which is the best Anime of 2022-23 season?',
+    desc: 'I want to know which one is the best anime from this season so that I can watch that anime. I am kinda confuse on so many animes.',
+    creator: user1
+)
+
+q1_answer1 = Answer.create!(
+    title: 'Demon Slayer',
+    question: q1,
+    creator: user2
+)
+
+q1_answer2 = Answer.create!(
+    title: 'Suayeb\'s Sword',
+    question: q1,
+    creator: user1,
+)
+
+q2 = Question.create!(
+    title: 'Which anime series revolves around a boy who sells his soul to a demon??',
+    desc: 'I want to know Which anime series revolves around a boy who sells his soul to a demon?',
+    creator: user1
+)
+
+q2_answer1 = Answer.create!(
+    title: 'Black Butler',
+    question: q2,
+    creator: user2
+)
+
+
+
+# news_post1 = Latest.create!(
+#     description: 'Coming soon!'
+# )
 
 Anime.create!(
     title:  'Bleach',

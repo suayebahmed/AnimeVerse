@@ -15,9 +15,9 @@
             </ul> -->
             <div class="card mb-4 p-3">
                 <div class="card-body">
-                    
+                    <p><%= q.creator.username %></p>
                     <h4 class="card-title"><%= q.title %></h4>
-                    <p class="card-text"><%= q.desc %></p>
+                    <%# <p class="card-text"><%= q.desc</p>  %>
                     <%= link_to 'Show', qa_show_path(q), class: "btn btn-outline-primary rounded" %>
                     <%# <%= link_to 'Answer', question_answers_path(q), class: 'btn btn-secondary' %> 
                     <!-- <a href="#" class="card-link">Another link</a> -->
