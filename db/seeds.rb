@@ -32,7 +32,7 @@ q2_answer1 = Answer.create!(
     question: q2
 )
 
-#<<<<<<< orlena_newspage
+
 
 #users 
 admin = User.create!(
@@ -46,8 +46,11 @@ user1 = User.create!(
     username: 'Orlena',
     password: 'password' 
 )
-=======
-#<<<<<<< Omarcus123
+
+news_post1 = Latest.create!(
+    description: 'Coming soon!'
+)
+
 Anime.create!(
     title:  'Bleach',
     summary: 'It follows the adventures of a teenager Ichigo Kurosaki, who inherits his parents destiny after he obtains the powers of a Soul Reaper—a death personification similar to the Grim Reaper—from another Soul Reaper, Rukia Kuchiki.',
@@ -87,7 +90,7 @@ Anime.create!(
     genre: 'Dark, Fantasy, Adventure, Supernatural',
     ratings: 'GO WATCH IT OH . MY . GODNESS IT IS SOOO GOOD I CANNOT EVEN BEGIN FO TO TELL YOU !!! The animation is wonderful plus the voice acting and the characters are wonderful .',
 )
-=======
+
 Convention.create!(
     price: 30,
     title: 'Anime Blues',
@@ -113,5 +116,4 @@ Convention.create!(
     link: 'https://www.anime-expo.org'
 
 )
-#>>>>>>> main
-#>>>>>>> main
+
