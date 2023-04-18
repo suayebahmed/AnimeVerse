@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :latests
 
   post '/rate' => 'rater#create', :as => 'rate'
-  devise_for :users
+  #devise_for :users
 
   # Orlena user login_username
   #devise_for :users
@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root 'home#welcome'
-  get 'welcome', to: 'home#welcome', as: 'welcome'
+  root 'latests#index'
+
 
   
 
