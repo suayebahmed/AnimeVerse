@@ -1,0 +1,18 @@
+<h1 class = "text-center"><%= @convention.title%></h1>
+
+<p>
+    Description: <%= @convention.description %>
+</p>
+
+<p>
+    Price: $ <%= @convention.price %>
+</p>
+
+
+<p>
+    Link to The Offical Website: <%= @convention.link%>
+</p>
+
+<p>
+    <%= link_to 'Ratings', convention_ratings_path(@convention)%>
+</p>
