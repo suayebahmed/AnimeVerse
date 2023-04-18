@@ -32,6 +32,7 @@ q2_answer1 = Answer.create!(
     question: q2
 )
 
+#<<<<<<< Omarcus123
 Anime.create!(
     title:  'Bleach',
     summary: 'It follows the adventures of a teenager Ichigo Kurosaki, who inherits his parents destiny after he obtains the powers of a Soul Reaper—a death personification similar to the Grim Reaper—from another Soul Reaper, Rukia Kuchiki.',
@@ -71,3 +72,30 @@ Anime.create!(
     genre: 'Dark, Fantasy, Adventure, Supernatural',
     ratings: 'GO WATCH IT OH . MY . GODNESS IT IS SOOO GOOD I CANNOT EVEN BEGIN FO TO TELL YOU !!! The animation is wonderful plus the voice acting and the characters are wonderful .',
 )
+=======
+Convention.create!(
+    price: 30,
+    title: 'Anime Blues',
+    description: 'Anime Blues Con returns July 7th - 9th, 2023 to the newly renovated Renasant Convention Center! (Formally, the Memphis Cook Convention Center) After a fresh coat of paint, we can’t wait to see you all again!',
+    link: 'https://animeblues.com'
+)
+Convention.create!(
+    price: 40,
+    title:'OmniCon',
+    description:'Omnicon is a multi-genre convention held in Cookeville, TN every Spring. It is hosted by the geeky group known as Alpha Psi Phi at Tennessee Tech University. We are slated for April 22nd and 23rd 2023!',
+    link: 'https://www.omnicontn.com'
+)
+Convention.create!(
+    price: 45,
+    title:'Akai Con',
+    description:'Obsessed with fandom? SO ARE WE. AKAICON PROVIDES A SAFE-HAVEN FOR ALL. INVITE YOUR FRIENDS, FINISH YOUR COSPLAY, MAKE NEW MEMORIES, AND BECOME FAMILY.',
+    link: 'http://akaicon.com'
+)
+Convention.create!(
+    price: 80,
+    title:'Anime Expo',
+    description:'Bringing fans and industry together to celebrate Japanese pop culture. Los Angeles, California July 1-4, 2023',
+    link: 'https://www.anime-expo.org'
+
+)
+#>>>>>>> main
