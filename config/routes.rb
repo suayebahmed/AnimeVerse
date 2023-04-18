@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+#<<<<<<< orlena_newspage
+  resources :latests
+=======
 #<<<<<<< Cons
   post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users
 =======
+#>>>>>>> main
   # Orlena user login_username
   #devise_for :users
   devise_for :users, controllers: { registrations: 'users/registrations' }

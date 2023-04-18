@@ -1,0 +1,38 @@
+# == Schema Information
+#
+# Table name: latests
+#
+#  id                 :bigint           not null, primary key
+#  allow_comments     :boolean
+#  description        :string
+#  latitude           :float
+#  longitude          :float
+#  show_likes_counter :boolean
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  user_id            :bigint           not null
+#
+# Indexes
+#
+#  index_latests_on_user_id  (user_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (user_id => users.id)
+#
+
+one:
+  description: MyString
+  longitude: 1.5
+  latitude: 1.5
+  user: one
+  allow_comments: false
+  show_likes_counter: false
+
+two:
+  description: MyString
+  longitude: 1.5
+  latitude: 1.5
+  user: two
+  allow_comments: false
+  show_likes_counter: false

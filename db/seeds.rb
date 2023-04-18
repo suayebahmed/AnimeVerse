@@ -32,6 +32,21 @@ q2_answer1 = Answer.create!(
     question: q2
 )
 
+#<<<<<<< orlena_newspage
+
+#users 
+admin = User.create!(
+    email: 'admin@mail.com',
+    username: 'Admin',
+    password: 'password'
+)
+
+user1 = User.create!(
+    email: 'orlena@mail.com',
+    username: 'Orlena',
+    password: 'password' 
+)
+=======
 #<<<<<<< Omarcus123
 Anime.create!(
     title:  'Bleach',
@@ -98,4 +113,5 @@ Convention.create!(
     link: 'https://www.anime-expo.org'
 
 )
+#>>>>>>> main
 #>>>>>>> main
