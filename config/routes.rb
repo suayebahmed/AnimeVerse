@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
 #<<<<<<< orlena_newspage
   resources :latests
-=======
 #<<<<<<< Cons
   post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users
-=======
 #>>>>>>> main
   # Orlena user login_username
   #devise_for :users
@@ -40,7 +38,7 @@ Rails.application.routes.draw do
   get 'lists/:id', to: 'lists#show', as: 'list'
   
 
-=======
+
 #<<<<<<< Cons
   #Dionas Jordan Route Pages
 
@@ -60,7 +58,7 @@ Rails.application.routes.draw do
   get 'conventions/:convention_id/ratings/:id', to: 'ratings#show', as: 'convention_rating'
   patch '/conventions/:convention_id/ratings/:id', to: 'ratings#update'
   delete '/conventions/:convention_id/ratings/:id', to: 'ratings#destroy'
-=======
+
 #>>>>>>> main
 
   # Suayeb Ahmed Answer page routes
