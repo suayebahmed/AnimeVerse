@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: redirect('/latests')
   resources :latests
 #<<<<<<< Cons
   #post '/rate' => 'rater#create', :as => 'rate'
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root 'latests#index'
+  # root 'latests#index'
 
 
   
