@@ -1,5 +1,13 @@
 class QaController < ApplicationController
     before_action :authenticate_user!, except: [:index]
+    before_action :require_permission, except: [:index, :show, :new, :create]
+
+    def require_permission
+        if Question.find(params[:id]).creator != current_user
+            flash[:error] = 'You do not have permission to do that.'
+            redirect_to qa_path
+        end
+    end
 
     def index
         @questions = Question.all
@@ -17,7 +25,7 @@ class QaController < ApplicationController
     end
 
     def create
-        @question = Question.new(params.require(:question).permit(:title, :desc))
+        @question = current_user.questions.build(params.require(:question).permit(:title, :desc))
         if @question.save
             flash[:success] = 'New Question successfully added!'
             redirect_to qa_url

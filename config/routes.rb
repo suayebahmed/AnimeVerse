@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  root to: redirect('/latests')
   resources :latests
+#<<<<<<< Cons
+  #post '/rate' => 'rater#create', :as => 'rate'
+  #devise_for :users
+#>>>>>>> main
 
   post '/rate' => 'rater#create', :as => 'rate'
   #devise_for :users
@@ -12,7 +17,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root 'latests#index'
+  # root 'latests#index'
 
 
   
@@ -36,6 +41,7 @@ Rails.application.routes.draw do
   
 
 
+#<<<<<<< Cons
   #Dionas Jordan Route Pages
 
   get 'conventions', to: 'conventions#index', as: 'conventions'
@@ -54,6 +60,8 @@ Rails.application.routes.draw do
   get 'conventions/:convention_id/ratings/:id', to: 'ratings#show', as: 'convention_rating'
   patch '/conventions/:convention_id/ratings/:id', to: 'ratings#update'
   delete '/conventions/:convention_id/ratings/:id', to: 'ratings#destroy'
+
+#>>>>>>> main
 
   # Suayeb Ahmed Answer page routes
   patch '/qa/:question_id/answers/:id', to: 'answers#update'

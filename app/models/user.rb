@@ -25,4 +25,18 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :latests
   has_one_attached :profile_pic
+
+has_many(
+    :answers,
+    class_name:  'Answer',
+    foreign_key: 'user_id',
+    inverse_of:  :creator
+  )
+
+  has_many(
+    :questions,
+    class_name:  'Question',
+    foreign_key: 'user_id',
+    inverse_of:  :creator
+  )
 end

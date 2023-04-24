@@ -1,5 +1,13 @@
 class AnswersController < ApplicationController
     before_action :authenticate_user!, except: [:index]
+    before_action :require_permission, except: [:index, :show, :new, :create]
+
+    def require_permission
+        if Answer.find(params[:id]).creator != current_user
+            flash[:error] = 'You do not have permission to do that.'
+            redirect_to qa_path
+        end
+    end
 
     def index
         @question = Question.find(params[:question_id])
