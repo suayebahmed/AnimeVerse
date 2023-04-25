@@ -1,26 +1,17 @@
 Rails.application.routes.draw do
-  root to: redirect('/latests')
-  resources :latests
-#<<<<<<< Cons
-  #post '/rate' => 'rater#create', :as => 'rate'
-  #devise_for :users
-#>>>>>>> main
+
 
   post '/rate' => 'rater#create', :as => 'rate'
-  #devise_for :users
 
-  # Orlena user login_username
-  #devise_for :users
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :articles do
+    resources :comments
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-  # root 'latests#index'
+  root to: "articles#index"
 
 
-  
 
 
   # Suayeb Ahmed Question page routes

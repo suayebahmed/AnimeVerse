@@ -1,27 +1,21 @@
 # == Schema Information
 #
-# Table name: questions
+# Table name: articles
 #
 #  id         :bigint           not null, primary key
-#  desc       :string
+#  body       :text
 #  title      :string
+#  url_link   :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  user_id    :bigint
-#
-# Indexes
-#
-#  index_questions_on_user_id  (user_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (user_id => users.id)
 #
 
 one:
   title: MyString
-  desc: MyString
+  url_link: MyString
+  body: MyText
 
 two:
   title: MyString
-  desc: MyString
+  url_link: MyString
+  body: MyText
