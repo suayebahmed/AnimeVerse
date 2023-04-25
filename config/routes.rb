@@ -1,26 +1,17 @@
 Rails.application.routes.draw do
-  root to: redirect('/latests')
-  resources :latests
-#<<<<<<< Cons
-  #post '/rate' => 'rater#create', :as => 'rate'
-  #devise_for :users
-#>>>>>>> main
+
 
   post '/rate' => 'rater#create', :as => 'rate'
-  #devise_for :users
 
-  # Orlena user login_username
-  #devise_for :users
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :articles do
+    resources :comments
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-  # root 'latests#index'
+  root to: "articles#index"
 
 
-  
 
 
   # Suayeb Ahmed Question page routes
@@ -41,7 +32,7 @@ Rails.application.routes.draw do
   
 
 
-#<<<<<<< Cons
+
   #Dionas Jordan Route Pages
 
   get 'conventions', to: 'conventions#index', as: 'conventions'
@@ -61,7 +52,7 @@ Rails.application.routes.draw do
   patch '/conventions/:convention_id/ratings/:id', to: 'ratings#update'
   delete '/conventions/:convention_id/ratings/:id', to: 'ratings#destroy'
 
-#>>>>>>> main
+
 
   # Suayeb Ahmed Answer page routes
   patch '/qa/:question_id/answers/:id', to: 'answers#update'

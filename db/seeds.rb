@@ -14,6 +14,11 @@ admin = User.create!(
     password: 'password'
 )
 
+user = User.create!(
+    email: 'user@mail.com',
+    username: 'User',
+    password: 'password'
+)
 user1 = User.create!(
     email: 'orlena@mail.com',
     username: 'Orlena',
@@ -21,9 +26,69 @@ user1 = User.create!(
 )
 
 user2 = User.create!(
-    email: 'suayeb@email.com',
+    email: 'suayeb@mail.com',
     username: 'Suayeb',
     password: 'password'
+)
+
+user3 = User.create!(
+    email: 'dionus@mail.com',
+    username: 'Dionus',
+    password: 'password' 
+)
+
+user4 = User.create!(
+    email: 'omarcus@mail.com',
+    username: 'Omarcus',
+    password: 'password'
+)
+
+
+# Article
+snorlax = Article.create!(
+    title: "Cuddle up with Pokémon-Inspired Huge Snorlax Pillow",
+    body: "Pokémon's Snorlax has the right idea when it comes to naptime: anywhere, at any time, and as much as possible. Plus, the Sleeping Pokémon even looks like a big comfy cushion. Premium Bandai has taken this to its natural conclusion, releasing a huge Snorlax cushion!"
+)
+snorlax.image.attach(
+io: File.open('app/assets/images/a_seed-01.jpg'),
+filename: 'a_seed-01.jpg'
+)
+
+yoshi = Article.create!(
+    title: "Final Fantasy Artist Yoshitaka Amano Draws Cuphead in Behind the Scenes Video",
+    body: "The physical version of Cuphead touched down in Japan on April 20, and one of the features is a special piece of art by none other than renowned artist Yoshitaka Amano. Known for his work on everything from Vampire Hunter D to the Final Fantasy series and beyond, Amano applied his unique style to Studio MDHR's hit 2D run-and-gun action game, and you can see him at work in a new behind the scenes video.",
+    url_link: "https://youtu.be/-1YrUOX1N7w"
+)
+yoshi.image.attach(
+io: File.open('app/assets/images/a_seed-02.jpg'),
+filename: 'a_seed-02.jpg'
+)
+
+demon = Article.create!(
+    title: "Watching Demon Slayer: Swordsmith Village Arc?",
+    body: "Starting in February 2023, the Demon Slayer: Kimetsu no Yaiba -To the Swordsmith Village- World Tour kicked off with a worldwide theatrical screening in 95 countries and regions. In April, the TV adaptation of the Swordsmith Village Arc is confirmed to begin airing.
+    
+    And the story makes its way to a new location ─ 
+
+    Tanjiro\’s journey leads him to the Swordsmith Village, where he reunites with two Hashira, members of the Demon Slayer Corps\’ highest-ranking swordsmen - Mist Hashira Muichiro Tokito and Love Hashira Mitsuri Kanroji. With the shadows of demons lurking near, a new battle begins for Tanjiro and his comrades."
+)
+demon.image.attach(
+io: File.open('app/assets/images/a_seed-03.jpg'),
+filename: 'a_seed-03.jpg'
+)
+
+
+
+inori = Article.create!(
+    title: "Inori Minase Drops Dead Mount Death Play Anime Ending Theme MV",
+    body: "The official YouTube channel for voice actress Inori Minase (Hestia in Is It Wrong to Try to Pick Up Girls in a Dungeon?, Rem in RE:ZERO \− Starting Life in Another World) has started streaming a music video for her latest 11th single song \"Iolite\" released in Japan today, April 19. The song is now featured as the ending theme for the spring 2023 TV anime Dead Mount Death Play, in which she is also cast as the main heroine character, Misaki Sakimiya.
+
+    The TV anime adaptation of Ryohgo Narita (story) and Shinta Fujimoto's (arts) dark fantasy manga Dead Mount Death Play premiered in Japan on April 10, 2023.",
+    url_link: "https://youtu.be/YPLPI-cs7xg"
+)
+inori.image.attach(
+io: File.open('app/assets/images/a_seed-04.jpg'),
+filename: 'a_seed-04.jpg'
 )
 
 # Questions Seed
@@ -32,7 +97,6 @@ q1 = Question.create!(
     desc: 'I want to know which one is the best anime from this season so that I can watch that anime. I am kinda confuse on so many animes.',
     creator: user1
 )
-
 q1_answer1 = Answer.create!(
     title: 'Demon Slayer',
     question: q1,
@@ -42,7 +106,7 @@ q1_answer1 = Answer.create!(
 q1_answer2 = Answer.create!(
     title: 'Suayeb\'s Sword',
     question: q1,
-    creator: user1,
+    creator: user1
 )
 
 q2 = Question.create!(
@@ -59,9 +123,6 @@ q2_answer1 = Answer.create!(
 
 
 
-# news_post1 = Latest.create!(
-#     description: 'Coming soon!'
-# )
 
 Anime.create!(
     title:  'Bleach',

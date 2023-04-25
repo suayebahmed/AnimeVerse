@@ -1,0 +1,34 @@
+<p style="color: green"><%= notice %></p>
+
+<div>
+  <%= link_to "Back to articles", articles_path %> |
+  <% if current_user && current_user.username == "Admin"%>
+    <%= link_to "Edit this article", edit_article_path(@article) %> 
+    <%= button_to "Destroy this article", @article, method: :delete %>
+  <%end%>
+</div>
+
+<h1><strong><%= @article.title %></strong></h1>
+<%= @article.created_at%>
+
+<div>
+<% if @article.image.attached? %>
+  <%= image_tag(@article.image, style: "height: 300px", class: 'd-block mx-auto')%>
+<%end%>
+</div>
+
+<div>
+<% if @article.url_link.present? %>
+  <%= link_to 'Resource website', @article.url_link, target: '_blank' %>
+<%end%>
+</div>
+
+
+<div style="white-space: pre-line;">
+<%= @article.body %>
+</div>
+
+<br>
+
+
+<%= render 'comments/comment'%>
