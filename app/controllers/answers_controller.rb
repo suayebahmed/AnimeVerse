@@ -29,7 +29,10 @@ class AnswersController < ApplicationController
 
   def create
     @question = Question.find(params[:question_id])
-    @answer = @question.answers.build(params.require(:answer).permit(:title))
+    @answer = @question.answers.create(params[:answer].permit(:title))
+    @answer.user_id = current_user.id
+    @answer.save 
+
     if @answer.save
       flash[:success] = "Answer saved successfully"
       redirect_to qa_show_url(@question)
