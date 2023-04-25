@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   
 
 
-#<<<<<<< Cons
+
   #Dionas Jordan Route Pages
 
   get 'conventions', to: 'conventions#index', as: 'conventions'
@@ -52,7 +52,7 @@ Rails.application.routes.draw do
   patch '/conventions/:convention_id/ratings/:id', to: 'ratings#update'
   delete '/conventions/:convention_id/ratings/:id', to: 'ratings#destroy'
 
-#>>>>>>> main
+
 
   # Suayeb Ahmed Answer page routes
   patch '/qa/:question_id/answers/:id', to: 'answers#update'
