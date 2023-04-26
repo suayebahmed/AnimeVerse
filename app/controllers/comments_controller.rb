@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
+    before_action :authenticate_user!
     before_action :find_article
     before_action :find_comment, only: [:show, :destroy, :edit, :update, :comment_owner]
     before_action :comment_owner, only: [:destroy, :edit, :update]
+    
 
     def show
         @comment.destroy

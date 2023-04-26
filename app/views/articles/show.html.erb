@@ -1,8 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
 <div>
-  <%= link_to "Back to articles", articles_path %> |
-  <% if current_user && current_user.username == "Admin"%>
+  <%= link_to "Back to news", articles_path %> |
+  <% if current_user && current_user.email == 'admin@mail.com' %>
     <%= link_to "Edit this article", edit_article_path(@article) %> 
     <%= button_to "Destroy this article", @article, method: :delete %>
   <%end%>
