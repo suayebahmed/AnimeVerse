@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+  get 'home', to: 'pages#home', as: 'home'
+  root "pages#home"
 
 
   post '/rate' => 'rater#create', :as => 'rate'
@@ -10,7 +11,6 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  root to: "articles#index"
   
 
 
