@@ -3,7 +3,8 @@ class AnswersController < ApplicationController
     before_action :require_permission, except: [:index, :show, :new, :create]
 
     def require_permission
-        if Answer.find(params[:id]).creator != current_user
+        # if Answer.find(params[:id]).creator != current_user
+        unless Answer.find(params[:id]).creator == current_user || current_user == User.find(1)
             flash[:error] = 'You do not have permission to do that.'
             redirect_to qa_path
         end
@@ -33,7 +34,10 @@ class AnswersController < ApplicationController
     @answer.user_id = current_user.id
     @answer.save 
 
-    if @answer.save
+    if @answer.title.blank?
+      flash[:error] = "Post content cannot be empty"
+      render :new
+    elsif @answer.save
       flash[:success] = "Answer saved successfully"
       redirect_to qa_show_url(@question)
     else
