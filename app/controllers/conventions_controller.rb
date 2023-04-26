@@ -1,4 +1,5 @@
 class ConventionsController < ApplicationController
+    before_action :authenticate_user!
     def index 
         @conventions = Convention.all
         render :index

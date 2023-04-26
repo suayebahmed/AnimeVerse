@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Recent News 
-<% if current_user && current_user.username == "Admin"%>
+<% if current_user && current_user.email == 'admin@mail.com' %>
   <%= link_to 'Create New', new_article_path, class: 'btn btn-primary' %>
 <%end%> 
 </h1>

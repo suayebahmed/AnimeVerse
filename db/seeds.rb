@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+require 'faker'
 
 #users 
 admin = User.create!(
@@ -44,6 +45,21 @@ user4 = User.create!(
 )
 
 
+# generate 13 users
+(7..20).each do |id|
+    User.create!(
+# each user is assigned an id from 7-20
+        id: id, 
+        email: Faker::Internet.email(domain: 'mail.com'),
+        username: Faker::Name.name,
+# issue each user the same password
+        password: "password", 
+        password_confirmation: "password"
+    )
+end
+
+
+
 # Article
 snorlax = Article.create!(
     title: "Cuddle up with Pokémon-Inspired Huge Snorlax Pillow",
@@ -78,7 +94,6 @@ filename: 'a_seed-03.jpg'
 )
 
 
-
 inori = Article.create!(
     title: "Inori Minase Drops Dead Mount Death Play Anime Ending Theme MV",
     body: "The official YouTube channel for voice actress Inori Minase (Hestia in Is It Wrong to Try to Pick Up Girls in a Dungeon?, Rem in RE:ZERO \− Starting Life in Another World) has started streaming a music video for her latest 11th single song \"Iolite\" released in Japan today, April 19. The song is now featured as the ending theme for the spring 2023 TV anime Dead Mount Death Play, in which she is also cast as the main heroine character, Misaki Sakimiya.
@@ -90,6 +105,19 @@ inori.image.attach(
 io: File.open('app/assets/images/a_seed-04.jpg'),
 filename: 'a_seed-04.jpg'
 )
+
+
+# create 50 comments in DB. Comments belong to article
+(200..250).each do |id|
+    Comment.create!(
+        id: id,
+        user_id: rand(1..20),
+        body: Faker::Lorem.sentence,
+        article_id: rand(1..4)
+    )
+end
+
+
 
 # Questions Seed
 q1 = Question.create!(

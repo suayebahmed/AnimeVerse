@@ -11,5 +11,6 @@
 #
 class Article < ApplicationRecord
     has_one_attached :image
+    validates :url_link, url: { allow_blank: true }
     has_many :comments, dependent: :destroy
 end
