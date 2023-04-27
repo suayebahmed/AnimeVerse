@@ -1,18 +1,39 @@
-<h1 class = "text-center"><%= @convention.title%></h1>
+<div>
+  <%= link_to "Back to conventions", conventions_path %> |
+  <% if current_user && current_user.email == 'admin@mail.com' %>
+    <%= link_to "Edit this convention", edit_convention_path(@convention) %> 
+    <%= button_to "Destroy this convention", @convention, method: :delete %>
+  <%end%>
+</div>
+
+
+
+<div>
+<% if @convention.image.attached? %>
+  <%= image_tag(@convention.image, style: "height: 300px", class: 'd-block mx-auto')%>
+<%end%>
+</div>
+
+<br>
+
 
 <p>
-    Description: <%= @convention.description %>
+    <b>Description:</b> <%= @convention.description %>
+</p>
+
+
+<p>
+    <b>Price:</b> $<%= @convention.price %>
 </p>
 
 <p>
-    Price: $ <%= @convention.price %>
-</p>
-
-
-<p>
-    Link to The Offical Website: <%= @convention.link%>
+    <%= link_to 'Offical Website:', @convention.link, target: '_blank' %> <%= @convention.link%> 
 </p>
 
 <p>
     <%= link_to 'Ratings', convention_ratings_path(@convention)%>
+</p>
+
+<p>
+    <%= link_to 'Back To Cons', conventions_path%>
 </p>

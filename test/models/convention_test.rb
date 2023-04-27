@@ -5,7 +5,8 @@
 #  id          :bigint           not null, primary key
 #  description :string
 #  link        :string
-#  price       :decimal(, )
+#  location    :string
+#  price       :integer
 #  title       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

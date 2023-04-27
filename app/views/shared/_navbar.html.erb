@@ -30,6 +30,7 @@
 
 
             <% if user_signed_in? %>
+              
               <li class="nav-item">
                 <%= link_to "Hi, #{current_user.username}", edit_user_registration_path,
                             class: "nav-link #{active_class(edit_user_registration_path)} btn btn-link" %>

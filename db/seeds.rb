@@ -192,29 +192,67 @@ Anime.create!(
     ratings: 'GO WATCH IT OH . MY . GODNESS IT IS SOOO GOOD I CANNOT EVEN BEGIN FO TO TELL YOU !!! The animation is wonderful plus the voice acting and the characters are wonderful .',
 )
 
-Convention.create!(
+
+
+
+anime_blues = Convention.create!(
     price: 30,
     title: 'Anime Blues',
     description: 'Anime Blues Con returns July 7th - 9th, 2023 to the newly renovated Renasant Convention Center! (Formally, the Memphis Cook Convention Center) After a fresh coat of paint, we can’t wait to see you all again!',
-    link: 'https://animeblues.com'
+    link: 'https://animeblues.com',
+    location: 'Memphis, TN'
 )
-Convention.create!(
+anime_blues.image.attach(
+    io: File.open('app/assets/images/con_seed-01.jpg'),
+    filename: 'con_seed-01.jpg'
+)
+    
+omnicon = Convention.create!(
     price: 40,
     title:'OmniCon',
     description:'Omnicon is a multi-genre convention held in Cookeville, TN every Spring. It is hosted by the geeky group known as Alpha Psi Phi at Tennessee Tech University. We are slated for April 22nd and 23rd 2023!',
-    link: 'https://www.omnicontn.com'
+    link: 'https://www.omnicontn.com',
+    location: 'Cookeville, TN'
 )
-Convention.create!(
+omnicon.image.attach(
+    io: File.open('app/assets/images/con_seed-02.jpg'),
+    filename: 'con_seed-02.jpg'
+)
+
+akaicon = Convention.create!(
     price: 45,
     title:'Akai Con',
     description:'Obsessed with fandom? SO ARE WE. AKAICON PROVIDES A SAFE-HAVEN FOR ALL. INVITE YOUR FRIENDS, FINISH YOUR COSPLAY, MAKE NEW MEMORIES, AND BECOME FAMILY.',
-    link: 'http://akaicon.com'
+    link: 'http://akaicon.com',
+    location: 'Lebanon, TN'
 )
-Convention.create!(
+akaicon.image.attach(
+    io: File.open('app/assets/images/con_seed-03.jpg'),
+    filename: 'con_seed-03.jpg'
+)
+
+animeex = Convention.create!(
     price: 80,
     title:'Anime Expo',
     description:'Bringing fans and industry together to celebrate Japanese pop culture. Los Angeles, California July 1-4, 2023',
-    link: 'https://www.anime-expo.org'
-
+    link: 'https://www.anime-expo.org',
+    location: 'Los Angeles, CA'
 )
+animeex.image.attach(
+    io: File.open('app/assets/images/con_seed-04.jpg'),
+    filename: 'con_seed-04.jpg'
+)
+
+dragcon = Convention.create!(
+    price: 155,
+    title:'Dragon Con',
+    description: 'Dragon Con is the largest multi-media, pop culture convention focusing on science fiction & fantasy, gaming, comics, literature, art, music, and film in the universe – and the best place to celebrate all of these things with fellow fans on Labor Day Weekend.',
+    link:'https://www.dragoncon.org/',
+    location: 'Atlanta, GA'
+)
+dragcon.image.attach(
+    io: File.open('app/assets/images/con_seed-05.png'),
+    filename: 'con_seed-05.png'
+)
+
 

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :conventions
   get 'home', to: 'pages#home', as: 'home'
   root "pages#home"
 
@@ -37,13 +38,6 @@ Rails.application.routes.draw do
 
   #Dionas Jordan Route Pages
 
-  get 'conventions', to: 'conventions#index', as: 'conventions'
-  post 'conventions', to: 'conventions#create'
-  get 'conventions/new', to: 'conventions#new', as: 'new_convention'
-  get 'conventions/:id/edit', to: 'coventions#edit', as: 'edit_convention'
-  get 'conventions/:id', to: 'conventions#show', as: 'convention'
-  patch 'conventions/:id', to: 'conventions#update'
-  delete 'conventions/:id', to: 'conventions#destroy'
 
 
   get 'conventions/:convention_id/ratings', to: 'ratings#index', as: 'convention_ratings'

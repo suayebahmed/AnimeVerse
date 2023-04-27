@@ -20,10 +20,10 @@
 #  fk_rails_...  (convention_id => conventions.id)
 #
 class Rating < ApplicationRecord
-    belongs_to(
-    :convention,
-    class_name:  'Convention',
-    foreign_key: 'convention_id',
-    inverse_of:  :ratings
-  )
+  #   belongs_to(
+  #   :convention,
+  #   class_name:  'Convention',
+  #   foreign_key: 'convention_id',
+  #   inverse_of:  :ratings
+  # )
 end
