@@ -1,18 +1,89 @@
-<h1 class = "text-center"><%= @convention.title%></h1>
+<div>
+  <%= link_to "Back to conventions", conventions_path %> |
+  <% if current_user && current_user.email == 'admin@mail.com' %>
+    <%= link_to "Edit this convention", edit_convention_path(@convention) %> 
+    <%= button_to "Destroy this convention", @convention, method: :delete %>
+  <%end%>
+</div>
+
+<br>
+
+
+<div>
+<% if @convention.image.attached? %>
+  <%= image_tag(@convention.image, style: "height: 300px", class: 'd-block mx-auto')%>
+<%end%>
+</div>
+
+<br>
 
 <p>
-    Description: <%= @convention.description %>
-</p>
-
-<p>
-    Price: $ <%= @convention.price %>
+    <b>Location:</b> <%= @convention.city%>, <%= @convention.state%>
 </p>
 
 
 <p>
-    Link to The Offical Website: <%= @convention.link%>
+    <b>Description:</b> <t style="white-space: pre-line;"><%= @convention.description %></t>
 </p>
 
+
+
+
 <p>
-    <%= link_to 'Ratings', convention_ratings_path(@convention)%>
+    <b>Price:</b> $<%= @convention.price %>
 </p>
+
+
+<p>
+  <% if @convention.link.present? %>
+    <%= link_to 'Offical Website:', @convention.link, target: '_blank' %> <%= @convention.link%> 
+  <%end%> 
+</p>
+
+<br>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <h4><b> 
+      <% if @convention.average_rating == 5.00 %>
+        <%= image_tag '5-star.png', style: 'max-width: 10rem;' %>
+      <% elsif @convention.average_rating.between?(4.50, 4.99)%>
+        <%= image_tag '4.5-star.png', style: 'max-width: 10rem;' %>
+      <% elsif @convention.average_rating.between?(4.00, 4.49)%>
+        <%= image_tag '4-star.png', style: 'max-width: 10rem;' %>
+      <% elsif @convention.average_rating.between?(3.50, 3.99)%>
+        <%= image_tag '3.5-star.png', style: 'max-width: 10rem;' %>
+      <% elsif @convention.average_rating.between?(3.00, 3.49)%>
+        <%= image_tag '3-star.png', style: 'max-width: 10rem;' %>
+      <% elsif @convention.average_rating.between?(2.50, 2.99)%>
+        <%= image_tag '2.5-star.png', style: 'max-width: 10rem;' %>
+      <% elsif @convention.average_rating.between?(2.00, 2.49)%>
+        <%= image_tag '2-star.png', style: 'max-width: 10rem;' %>
+      <% elsif @convention.average_rating.between?(1.50, 1.99)%>
+        <%= image_tag '1.5-star.png', style: 'max-width: 10rem;' %>
+      <% elsif @convention.average_rating.between?(1.00, 1.49)%>
+        <%= image_tag '1-star.png', style: 'max-width: 10rem;' %>
+      <% elsif @convention.average_rating.between?(0.50, 0.99)%>
+        <%= image_tag '0.5-star.png', style: 'max-width: 10rem;' %>
+      <% elsif @convention.average_rating.between?(0.00, 0.49)%>
+        <%= image_tag '0-star.png', style: 'max-width: 10rem;' %>
+      <%end%>
+    (<%= @convention.average_rating %>)
+    </h4>
+    <br>
+
+    <div class="container">
+      <div>
+        <%= render 'reviews/form'  %>
+    
+      </div>
+      <br>
+      <div>
+        <%= render 'reviews/list'%>
+      </div>
+
+    </div>
+  </div>
+</div>
+

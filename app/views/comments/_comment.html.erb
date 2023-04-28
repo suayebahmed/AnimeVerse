@@ -1,5 +1,11 @@
 <b><i> This post has <%= pluralize(@comments.count, "comment")%> </i></b>
+<hr>
 
+<% if user_signed_in? %>
+    <%= render 'comments/form'%>
+<% end %>
+
+<br>
 <% @comments.each do |comment|%>
 
 <div class="card border-info mb-3" style="max-width;">
@@ -16,14 +22,10 @@
       <% if current_user == comment.user || current_user.email == 'admin@mail.com' %>
           <%= link_to 'Delete', [comment.article, comment], method: :delete %>
       <%end%>
-      <i>  <%= comment.created_at%></i>
+      <i>  <%= comment.created_at.strftime("%v")%></i>
     </div>
 
   </div>
 </div>
 
-<% end %>
-
-<% if user_signed_in? %>
-    <%= render 'comments/form'%>
 <% end %>

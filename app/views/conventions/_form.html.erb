@@ -1,0 +1,48 @@
+<%= bootstrap_form_with(model: convention) do |form| %>
+  <% if convention.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(convention.errors.count, "error") %> prohibited this convention from being saved:</h2>
+
+      <ul>
+        <% convention.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div>
+    <%= form.text_field :title, placeholder: 'Enter title here' %>
+  </div>
+
+  <div>
+    <%= form.text_area :description, placeholder: "Description", size: "10x5" %>
+  </div>
+
+  <div>
+    <%= form.text_field :city, placeholder: 'Enter city here' %>
+  </div>
+
+  <div>
+    <%= form.text_field :state, placeholder: 'Enter a valid state abbreviation (ex: TN)' %>
+  </div>
+  
+  <div>
+    <%= form.text_field :price, placeholder: 'Enter the price here' %>
+  </div>
+
+  <div>
+    <%= form.file_field :image %>
+  </div>
+
+  <div>
+    <%= form.text_field :link, placeholder: "Enter a valid URL (https://...)" %>
+  </div>
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

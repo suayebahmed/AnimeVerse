@@ -1,10 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, except: [:welcome]
-
-  def welcome
-    render :welcome
-  end
+  before_action :authenticate_user!
+  
   # GET /articles or /articles.json
   def index
     @articles = Article.order(created_at: :desc)
@@ -12,7 +9,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1 or /articles/1.json
   def show
-    @comments = Comment.where(article_id: @article).all
+    @comments = Comment.where(article_id: @article).order(created_at: :desc)
   end
 
   # GET /articles/new
