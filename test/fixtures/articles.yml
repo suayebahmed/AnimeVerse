@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: articles
+#
+#  id         :bigint           not null, primary key
+#  body       :text
+#  title      :string
+#  url_link   :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  title: MyString
+  url_link: MyString
+  body: MyText
+
+two:
+  title: MyString
+  url_link: MyString
+  body: MyText

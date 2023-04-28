@@ -1,0 +1,53 @@
+<b><i> This convention has <%= pluralize(@reviews.count, "review")%> </i></b>
+<hr>
+<% @reviews.order("id desc").each do |r|%>
+
+
+        <div class="row">
+            <div class="col-md-1">
+                <strong> <%= r.user.username %> </strong>
+            </div>
+
+            <div class="col-md-11">
+                <div>
+                    <% if r.star == 5 %>
+                        <%= image_tag '5-star.png', style: 'max-width: 7rem;' %>
+                    <%elsif r.star == 4 %>
+                        <%= image_tag '4-star.png', style: 'max-width: 7rem;' %>
+                    <%elsif r.star == 3 %>
+                        <%= image_tag '3-star.png', style: 'max-width: 7rem;' %>
+                    <%elsif r.star == 2 %>
+                        <%= image_tag '2-star.png', style: 'max-width: 7rem;' %>
+                    <%elsif r.star == 1 %>
+                        <%= image_tag '1-star.png', style: 'max-width: 7rem;' %>
+                    <%end%>
+
+                    
+                    <span class="pull-right">
+                        <% if current_user == r.user %>
+                            <%= link_to 'Edit', edit_review_path(r.convention, r) %>
+                        <%end%>
+                        <% if current_user == r.user || current_user.email == 'admin@mail.com' %>
+                            <%= link_to 'Delete', [r.convention, r], method: :delete %>
+                        <%end%>
+                    </span>
+                </div>
+            
+
+                <div><i>  <%= r.created_at.strftime("%v")%></i> </div>
+
+            
+                <div style="white-space: pre-line;">
+                    <%= r.comment %>
+                    
+                    <hr>
+                </div>
+            
+            </div>
+            
+        </div>
+
+
+<%end%>
+
+

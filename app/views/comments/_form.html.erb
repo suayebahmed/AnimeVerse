@@ -1,0 +1,5 @@
+<%= bootstrap_form_for([@article, @article.comments.build]) do |f| %>
+    <%= f.text_area :body, placeholder: 'Enter comment', size: "10x3"%>
+    <%= f.submit class: 'btn btn-primary btn-sm' %>
+  
+<% end %>

@@ -1,12 +1,30 @@
-<h1 class = "text-center">UPCOMING CONVENTIONS</h1>
 
+<h1 class = "text-center">CONVENTIONS</h1>
+
+<% if current_user && current_user.email == "admin@mail.com"%>
+  <%= link_to 'Create New', new_convention_path, class: 'btn btn-primary' %>
+<%end%> 
+
+<table class="table table-hover">
+  <thead class="table-dark">
+    <tr>
+    <th>Cons</th>
+    <th>Locations</th>
+    </tr>
+  </thead>
 <tbody>
     <% @conventions.each do |convention| %>
       <tr>
       <p>
             <td><%= link_to convention.title, convention_path(convention)%></td>
+            <td><%= convention.city%>, <%= convention.state%></td>
         </p>
     </tr>
 <%end%>
 </tbody>
+</table>
+<br>
+<%= image_tag 'AnimeCon.jpg', class: 'w-100 rounded-circle shadow-lg d-block mx-auto', style: 'max-width: 32rem;' %>
 
+<br>
+<br>

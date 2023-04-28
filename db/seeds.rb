@@ -6,33 +6,153 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+require 'faker'
+
+#users 
+admin = User.create!(
+    email: 'admin@mail.com',
+    username: 'Admin',
+    password: 'password'
+)
+
+user = User.create!(
+    email: 'user@mail.com',
+    username: 'User',
+    password: 'password'
+)
+user1 = User.create!(
+    email: 'orlena@mail.com',
+    username: 'Orlena',
+    password: 'password' 
+)
+
+user2 = User.create!(
+    email: 'suayeb@mail.com',
+    username: 'Suayeb',
+    password: 'password'
+)
+
+user3 = User.create!(
+    email: 'dionus@mail.com',
+    username: 'Dionus',
+    password: 'password' 
+)
+
+user4 = User.create!(
+    email: 'omarcus@mail.com',
+    username: 'Omarcus',
+    password: 'password'
+)
+
+
+# generate 33 users
+(7..40).each do |id|
+    User.create!(
+# each user is assigned an id from 7-40
+        id: id, 
+        email: Faker::Internet.email(domain: 'mail.com'),
+        username: Faker::Name.name,
+# issue each user the same password
+        password: "password", 
+        password_confirmation: "password"
+    )
+end
+
+
+
+# Article
+snorlax = Article.create!(
+    title: "Cuddle up with Pokémon-Inspired Huge Snorlax Pillow",
+    body: "Pokémon's Snorlax has the right idea when it comes to naptime: anywhere, at any time, and as much as possible. Plus, the Sleeping Pokémon even looks like a big comfy cushion. Premium Bandai has taken this to its natural conclusion, releasing a huge Snorlax cushion!"
+)
+snorlax.image.attach(
+io: File.open('app/assets/images/a_seed-01.jpg'),
+filename: 'a_seed-01.jpg'
+)
+
+yoshi = Article.create!(
+    title: "Final Fantasy Artist Yoshitaka Amano Draws Cuphead in Behind the Scenes Video",
+    body: "The physical version of Cuphead touched down in Japan on April 20, and one of the features is a special piece of art by none other than renowned artist Yoshitaka Amano. Known for his work on everything from Vampire Hunter D to the Final Fantasy series and beyond, Amano applied his unique style to Studio MDHR's hit 2D run-and-gun action game, and you can see him at work in a new behind the scenes video.",
+    url_link: "https://youtu.be/-1YrUOX1N7w"
+)
+yoshi.image.attach(
+io: File.open('app/assets/images/a_seed-02.jpg'),
+filename: 'a_seed-02.jpg'
+)
+
+demon = Article.create!(
+    title: "Watching Demon Slayer: Swordsmith Village Arc?",
+    body: "Starting in February 2023, the Demon Slayer: Kimetsu no Yaiba -To the Swordsmith Village- World Tour kicked off with a worldwide theatrical screening in 95 countries and regions. In April, the TV adaptation of the Swordsmith Village Arc is confirmed to begin airing.
+    
+    And the story makes its way to a new location ─ 
+
+    Tanjiro\’s journey leads him to the Swordsmith Village, where he reunites with two Hashira, members of the Demon Slayer Corps\’ highest-ranking swordsmen - Mist Hashira Muichiro Tokito and Love Hashira Mitsuri Kanroji. With the shadows of demons lurking near, a new battle begins for Tanjiro and his comrades."
+)
+demon.image.attach(
+io: File.open('app/assets/images/a_seed-03.jpg'),
+filename: 'a_seed-03.jpg'
+)
+
+
+inori = Article.create!(
+    title: "Inori Minase Drops Dead Mount Death Play Anime Ending Theme MV",
+    body: "The official YouTube channel for voice actress Inori Minase (Hestia in Is It Wrong to Try to Pick Up Girls in a Dungeon?, Rem in RE:ZERO \− Starting Life in Another World) has started streaming a music video for her latest 11th single song \"Iolite\" released in Japan today, April 19. The song is now featured as the ending theme for the spring 2023 TV anime Dead Mount Death Play, in which she is also cast as the main heroine character, Misaki Sakimiya.
+
+    The TV anime adaptation of Ryohgo Narita (story) and Shinta Fujimoto's (arts) dark fantasy manga Dead Mount Death Play premiered in Japan on April 10, 2023.",
+    url_link: "https://youtu.be/YPLPI-cs7xg"
+)
+inori.image.attach(
+io: File.open('app/assets/images/a_seed-04.jpg'),
+filename: 'a_seed-04.jpg'
+)
+
+
+# create 50 comments in DB. Comments belong to article
+(200..250).each do |id|
+    Comment.create!(
+        id: id,
+        user_id: rand(1..40),
+        body: Faker::Lorem.sentence,
+        article_id: rand(1..4),
+        created_at: Faker::Date.between(from: 1.year.ago, to: Date.today)
+    )
+end
+
+
+
 # Questions Seed
 q1 = Question.create!(
     title: 'Which is the best Anime of 2022-23 season?',
-    desc: 'I want to know which one is the best anime from this season so that I can watch that anime. I am kinda confuse on so many animes.'
+    desc: 'I want to know which one is the best anime from this season so that I can watch that anime. I am kinda confuse on so many animes.',
+    creator: user1
 )
-
 q1_answer1 = Answer.create!(
     title: 'Demon Slayer',
-    question: q1
+    question: q1,
+    creator: user2
 )
 
 q1_answer2 = Answer.create!(
     title: 'Suayeb\'s Sword',
-    question: q1
+    question: q1,
+    creator: user1
 )
 
 q2 = Question.create!(
     title: 'Which anime series revolves around a boy who sells his soul to a demon??',
-    desc: 'I want to know Which anime series revolves around a boy who sells his soul to a demon?'
+    desc: 'I want to know Which anime series revolves around a boy who sells his soul to a demon?',
+    creator: user1
 )
 
 q2_answer1 = Answer.create!(
     title: 'Black Butler',
-    question: q2
+    question: q2,
+    creator: user2
 )
 
-#<<<<<<< Omarcus123
+
+
+
 Anime.create!(
     title:  'Bleach',
     summary: 'It follows the adventures of a teenager Ichigo Kurosaki, who inherits his parents destiny after he obtains the powers of a Soul Reaper—a death personification similar to the Grim Reaper—from another Soul Reaper, Rukia Kuchiki.',
@@ -73,29 +193,85 @@ Anime.create!(
     ratings: 'GO WATCH IT OH . MY . GODNESS IT IS SOOO GOOD I CANNOT EVEN BEGIN FO TO TELL YOU !!! The animation is wonderful plus the voice acting and the characters are wonderful .',
 )
 
-Convention.create!(
+
+
+anime_blues = Convention.create!(
     price: 30,
     title: 'Anime Blues',
     description: 'Anime Blues Con returns July 7th - 9th, 2023 to the newly renovated Renasant Convention Center! (Formally, the Memphis Cook Convention Center) After a fresh coat of paint, we can’t wait to see you all again!',
-    link: 'https://animeblues.com'
+    link: 'https://animeblues.com',
+    city: 'Memphis',
+    state: 'TN'
 )
-Convention.create!(
+anime_blues.image.attach(
+    io: File.open('app/assets/images/con_seed-01.jpg'),
+    filename: 'con_seed-01.jpg'
+)
+    
+omnicon = Convention.create!(
     price: 40,
     title:'OmniCon',
     description:'Omnicon is a multi-genre convention held in Cookeville, TN every Spring. It is hosted by the geeky group known as Alpha Psi Phi at Tennessee Tech University. We are slated for April 22nd and 23rd 2023!',
-    link: 'https://www.omnicontn.com'
+    link: 'https://www.omnicontn.com',
+    city: 'Cookeville', 
+    state: 'TN'
 )
-Convention.create!(
+omnicon.image.attach(
+    io: File.open('app/assets/images/con_seed-02.jpg'),
+    filename: 'con_seed-02.jpg'
+)
+
+akaicon = Convention.create!(
     price: 45,
     title:'Akai Con',
     description:'Obsessed with fandom? SO ARE WE. AKAICON PROVIDES A SAFE-HAVEN FOR ALL. INVITE YOUR FRIENDS, FINISH YOUR COSPLAY, MAKE NEW MEMORIES, AND BECOME FAMILY.',
-    link: 'http://akaicon.com'
+    link: 'http://akaicon.com',
+    city: 'Lebanon',
+    state:  'TN'
 )
-Convention.create!(
+akaicon.image.attach(
+    io: File.open('app/assets/images/con_seed-03.jpg'),
+    filename: 'con_seed-03.jpg'
+)
+
+animeex = Convention.create!(
     price: 80,
     title:'Anime Expo',
     description:'Bringing fans and industry together to celebrate Japanese pop culture. Los Angeles, California July 1-4, 2023',
-    link: 'https://www.anime-expo.org'
-
+    link: 'https://www.anime-expo.org',
+    city: 'Los Angeles',
+    state: 'CA'
 )
-#>>>>>>> main
+animeex.image.attach(
+    io: File.open('app/assets/images/con_seed-04.jpg'),
+    filename: 'con_seed-04.jpg'
+)
+
+dragcon = Convention.create!(
+    price: 155,
+    title:'Dragon Con',
+    description: 'Dragon Con is the largest multi-media, pop culture convention focusing on science fiction & fantasy, gaming, comics, literature, art, music, and film in the universe – and the best place to celebrate all of these things with fellow fans on Labor Day Weekend.',
+    link:'https://www.dragoncon.org/',
+    city: 'Atlanta',
+    state: 'GA'
+)
+dragcon.image.attach(
+    io: File.open('app/assets/images/con_seed-05.png'),
+    filename: 'con_seed-05.png'
+)
+
+
+
+
+
+(300..320).each do |id|
+    Review.create!(
+        id: id,
+        user_id: Faker::Number.unique.between(from: 1, to: 40),
+        star: rand(1..5),
+        comment: Faker::Lorem.sentence,
+        convention_id: rand(1..5),
+        created_at: Faker::Date.between(from: 1.year.ago, to: Date.today)
+    )
+end
+

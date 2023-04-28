@@ -3,9 +3,11 @@
 # Table name: conventions
 #
 #  id          :bigint           not null, primary key
+#  city        :string
 #  description :string
 #  link        :string
-#  price       :decimal(, )
+#  price       :integer
+#  state       :string
 #  title       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

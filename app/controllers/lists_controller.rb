@@ -1,4 +1,6 @@
 class ListsController < ApplicationController
+    before_action :authenticate_user!
+
     def index
         @lists = Anime.order(:genre)
         render :index

@@ -2,13 +2,22 @@
 
 <div class="jumbotron jumbotron-fluid border border-secondary rounded p-4 border-3 mb-3">
     <div class="container p-3">
+        <p><%= @question.creator.username %></p>
         <h2 class="display-4"><%= @question.title %></h2>
         <p class="lead"><%= @question.desc %></p>
     </div>
+    <% if @question.creator == current_user %>
     <div class="d-flex flex-wrap">
         <%= link_to "Edit", edit_qa_path(@question), class:'btn btn-outline-primary rounded btn-lg mx-3' %>
         <%= button_to "Delete", qa_show_path(@question), class:"btn btn-outline-danger btn-lg", method: :delete, data: { turbo: false } %>
     </div>
+    <% elsif current_user == User.find(1) %>
+    <div class="d-flex flex-wrap">
+        <%= link_to "Edit", edit_qa_path(@question), class:'btn btn-outline-primary rounded btn-lg mx-3' %>
+        <%= button_to "Delete", qa_show_path(@question), class:"btn btn-outline-danger btn-lg", method: :delete, data: { turbo: false } %>
+    </div> 
+
+    <% end %>
 </div>
 
 
@@ -18,11 +27,27 @@
 <% @question.answers.each do |answer| %>
     <div class="p-4 mb-3 border border-1 border-warning">
         <div class="d-flex justify-content-between">
-            <p class="lead"><%= answer.title %></p>
+            <div class="d-inline justify-content-evenly">
+                <p>
+                    <%= answer.creator.username %>
+                </p>
+                <p class="lead">
+                    <%= answer.title %>
+                </p>
+            </div>
+            
+            <% if answer.creator == current_user %>
             <div>
                 <%= link_to 'edit', edit_question_answer_path(@question, answer), class: 'btn btn-outline-primary btn-sm' %>
                 <%= button_to 'delete', question_answer_path(@question, answer), method: :delete, data: { turbo: false }, class: 'btn btn-outline-danger btn-sm', form: { class: 'd-inline' } %>
             </div>
+            <% elsif current_user == User.find(1) %>
+            <div>
+                <%= link_to 'edit', edit_question_answer_path(@question, answer), class: 'btn btn-outline-primary btn-sm' %>
+                <%= button_to 'delete', question_answer_path(@question, answer), method: :delete, data: { turbo: false }, class: 'btn btn-outline-danger btn-sm', form: { class: 'd-inline' } %>
+            </div>
+            <% end %>
+            
         </div>
 
         

@@ -23,4 +23,21 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+ 
+  has_many :comments, dependent: :destroy
+  has_many :reviews
+
+has_many(
+    :answers,
+    class_name:  'Answer',
+    foreign_key: 'user_id',
+    inverse_of:  :creator
+  )
+
+  has_many(
+    :questions,
+    class_name:  'Question',
+    foreign_key: 'user_id',
+    inverse_of:  :creator
+  )
 end

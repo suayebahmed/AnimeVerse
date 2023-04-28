@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_17_155101) do
+
+ActiveRecord::Schema[7.0].define(version: 2023_04_27_170104) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,14 +59,36 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_17_155101) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "question_id"
+    t.bigint "user_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.string "url_link"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.bigint "article_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_comments_on_article_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "conventions", force: :cascade do |t|
-    t.string "title"
-    t.decimal "price"
     t.string "description"
     t.string "link"
+    t.string "city"
+    t.string "state"
+    t.integer "price"
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -74,17 +98,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_17_155101) do
     t.string "desc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
-  create_table "ratings", force: :cascade do |t|
-    t.integer "stars"
+  create_table "reviews", force: :cascade do |t|
     t.text "comment"
-    t.integer "user_id"
-    t.string "review"
+    t.integer "star"
+    t.bigint "convention_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "convention_id"
-    t.index ["convention_id"], name: "index_ratings_on_convention_id"
+    t.index ["convention_id"], name: "index_reviews_on_convention_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -103,5 +129,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_17_155101) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "answers", "questions"
-  add_foreign_key "ratings", "conventions"
+  add_foreign_key "answers", "users"
+  add_foreign_key "comments", "articles"
+  add_foreign_key "comments", "users"
+  add_foreign_key "questions", "users"
+  add_foreign_key "reviews", "conventions"
+  add_foreign_key "reviews", "users"
 end

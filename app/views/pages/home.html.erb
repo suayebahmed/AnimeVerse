@@ -1,0 +1,25 @@
+<% if user_signed_in? %>
+  <div class="card border-info mb-3" style="max-width: 18">
+    <div class="card-body text-info">
+      <div class="text-center"><%= image_tag 'hello-logo.png' %> </div>
+      <h1 class="text-center"><b><%= current_user.username %></b></h1>
+      <p></p>
+      <p></p>
+    
+    
+    </div>
+  </div>
+
+
+
+<% else %>
+  <div class="card border-info mb-3" style="max-width: 18">
+    <div class="card-body text-info">
+      <p class="text-center"><%= image_tag 'logo.png' %> </p>
+      <p></p>
+      <p></p>
+    
+    
+    </div>
+  </div>
+<%end%>
