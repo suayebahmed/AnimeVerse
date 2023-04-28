@@ -195,7 +195,6 @@ Anime.create!(
 
 
 
-
 anime_blues = Convention.create!(
     price: 30,
     title: 'Anime Blues',

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  # Omarcus
+  post '/rate' => 'rater#create', :as => 'rate'
+  
+
   # Orlena
   get 'home', to: 'pages#home', as: 'home'
   root "pages#home"
@@ -27,8 +31,6 @@ Rails.application.routes.draw do
 
 
   # Suayeb Ahmed Question page routes
- 
-
   get 'qa', to: 'qa#index', as: 'qa'
   post 'qa', to: 'qa#create'
   get 'qa/new', to: 'qa#new', as: 'new_qa'
@@ -37,12 +39,18 @@ Rails.application.routes.draw do
   patch 'qa/:id', to: 'qa#update'
   delete 'qa/:id', to: 'qa#destroy'
 
-  # Omarcus Swims Jr 
-  #get 'lists', to: 'lists#home', as: 'lists'
-  get 'lists', to: 'lists#index', as: 'lists'
-  get 'lists/:id', to: 'lists#show', as: 'list'
-  
 
+  # Omarcus Swims Jr 
+  get 'lists', to: 'lists#index', as: 'lists'
+  post 'lists', to: 'lists#create'
+  get 'lists/new', to: 'lists#new', as: 'new_list'
+  get 'lists/:id/edit', to: 'lists#edit', as: 'edit_list'
+  get 'lists/:id', to: 'lists#show', as: 'list'
+  patch 'lists/:id', to: 'lists#update'
+  delete 'lists/:id', to: 'lists#destroy'
+  
+  get 'abc', to: 'abc#index', as: 'abc'
+  get 'author', to: 'author#index', as: 'author'
 
 
   # Suayeb Ahmed Answer page routes
