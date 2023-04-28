@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 #<<<<<<< Cons
   post '/rate' => 'rater#create', :as => 'rate'
-  devise_for :users
-=======
+  #devise_for :users
+
   # Orlena user login_username
   #devise_for :users
   devise_for :users, controllers: { registrations: 'users/registrations' }
@@ -31,12 +31,18 @@ Rails.application.routes.draw do
 
 #<<<<<<< Omarcus123
   # Omarcus Swims Jr 
-  #get 'lists', to: 'lists#home', as: 'lists'
-  get 'lists', to: 'lists#index', as: 'lists'
-  get 'lists/:id', to: 'lists#show', as: 'list'
+ get 'lists', to: 'lists#index', as: 'lists'
+ post 'lists', to: 'lists#create'
+ get 'lists/new', to: 'lists#new', as: 'new_list'
+ get 'lists/:id/edit', to: 'lists#edit', as: 'edit_list'
+ get 'lists/:id', to: 'lists#show', as: 'list'
+ patch 'lists/:id', to: 'lists#update'
+ delete 'lists/:id', to: 'lists#destroy'
   
+ get 'abc', to: 'abc#index', as: 'abc'
 
-=======
+ get 'author', to: 'author#index', as: 'author'
+
 #<<<<<<< Cons
   #Dionas Jordan Route Pages
 
@@ -56,7 +62,7 @@ Rails.application.routes.draw do
   get 'conventions/:convention_id/ratings/:id', to: 'ratings#show', as: 'convention_rating'
   patch '/conventions/:convention_id/ratings/:id', to: 'ratings#update'
   delete '/conventions/:convention_id/ratings/:id', to: 'ratings#destroy'
-=======
+
 #>>>>>>> main
 
   # Suayeb Ahmed Answer page routes

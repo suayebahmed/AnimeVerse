@@ -1,0 +1,9 @@
+<h1> Edit Anime</h1>
+<%= bootstrap_form_with model: @list, url: list_path(@list), method: :patch, data: { turbo: false } do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :summary %>
+  <%= f.text_area :author %>
+  <%= f.text_area :genre %>
+  <%= f.text_area :ratings %>
+  <%= f.submit %>
+<% end %>

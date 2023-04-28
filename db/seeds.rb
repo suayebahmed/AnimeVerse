@@ -72,7 +72,7 @@ Anime.create!(
     genre: 'Dark, Fantasy, Adventure, Supernatural',
     ratings: 'GO WATCH IT OH . MY . GODNESS IT IS SOOO GOOD I CANNOT EVEN BEGIN FO TO TELL YOU !!! The animation is wonderful plus the voice acting and the characters are wonderful .',
 )
-=======
+
 Convention.create!(
     price: 30,
     title: 'Anime Blues',
