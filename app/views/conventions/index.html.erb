@@ -17,11 +17,14 @@
       <tr>
       <p>
             <td><%= link_to convention.title, convention_path(convention)%></td>
-            <td><%= convention.location%>
+            <td><%= convention.city%>, <%= convention.state%></td>
         </p>
     </tr>
 <%end%>
 </tbody>
 </table>
+<br>
 <%= image_tag 'AnimeCon.jpg', class: 'w-100 rounded-circle shadow-lg d-block mx-auto', style: 'max-width: 32rem;' %>
 
+<br>
+<br>

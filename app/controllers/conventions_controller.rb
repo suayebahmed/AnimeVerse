@@ -9,6 +9,9 @@ class ConventionsController < ApplicationController
 
   # GET /conventions/1 or /conventions/1.json
   def show
+    @reviews = @convention.reviews.order(created_at: :desc)
+   
+
   end
 
   # GET /conventions/new
@@ -66,6 +69,6 @@ class ConventionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def convention_params
-      params.require(:convention).permit(:description, :link, :location, :price, :title)
+      params.require(:convention).permit(:description, :link, :city, :state, :price, :title, :image)
     end
 end

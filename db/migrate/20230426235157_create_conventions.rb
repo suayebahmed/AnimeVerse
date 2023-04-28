@@ -3,7 +3,8 @@ class CreateConventions < ActiveRecord::Migration[7.0]
     create_table :conventions do |t|
       t.string :description
       t.string :link
-      t.string :location
+      t.string :city
+      t.string :state
       t.integer :price
       t.string :title
 

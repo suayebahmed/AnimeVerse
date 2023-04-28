@@ -6,6 +6,7 @@
   <%end%>
 </div>
 
+<br>
 
 
 <div>
@@ -16,24 +17,73 @@
 
 <br>
 
+<p>
+    <b>Location:</b> <%= @convention.city%>, <%= @convention.state%>
+</p>
+
 
 <p>
-    <b>Description:</b> <%= @convention.description %>
+    <b>Description:</b> <t style="white-space: pre-line;"><%= @convention.description %></t>
 </p>
+
+
 
 
 <p>
     <b>Price:</b> $<%= @convention.price %>
 </p>
 
+
 <p>
+  <% if @convention.link.present? %>
     <%= link_to 'Offical Website:', @convention.link, target: '_blank' %> <%= @convention.link%> 
+  <%end%> 
 </p>
 
-<p>
-    <%= link_to 'Ratings', convention_ratings_path(@convention)%>
-</p>
+<br>
 
-<p>
-    <%= link_to 'Back To Cons', conventions_path%>
-</p>
+
+<div class="row">
+  <div class="col-md-12">
+    <h4><b> 
+      <% if @convention.average_rating == 5.00 %>
+        <%= image_tag '5-star.png', style: 'max-width: 10rem;' %>
+      <% elsif @convention.average_rating.between?(4.50, 4.99)%>
+        <%= image_tag '4.5-star.png', style: 'max-width: 10rem;' %>
+      <% elsif @convention.average_rating.between?(4.00, 4.49)%>
+        <%= image_tag '4-star.png', style: 'max-width: 10rem;' %>
+      <% elsif @convention.average_rating.between?(3.50, 3.99)%>
+        <%= image_tag '3.5-star.png', style: 'max-width: 10rem;' %>
+      <% elsif @convention.average_rating.between?(3.00, 3.49)%>
+        <%= image_tag '3-star.png', style: 'max-width: 10rem;' %>
+      <% elsif @convention.average_rating.between?(2.50, 2.99)%>
+        <%= image_tag '2.5-star.png', style: 'max-width: 10rem;' %>
+      <% elsif @convention.average_rating.between?(2.00, 2.49)%>
+        <%= image_tag '2-star.png', style: 'max-width: 10rem;' %>
+      <% elsif @convention.average_rating.between?(1.50, 1.99)%>
+        <%= image_tag '1.5-star.png', style: 'max-width: 10rem;' %>
+      <% elsif @convention.average_rating.between?(1.00, 1.49)%>
+        <%= image_tag '1-star.png', style: 'max-width: 10rem;' %>
+      <% elsif @convention.average_rating.between?(0.50, 0.99)%>
+        <%= image_tag '0.5-star.png', style: 'max-width: 10rem;' %>
+      <% elsif @convention.average_rating.between?(0.00, 0.49)%>
+        <%= image_tag '0-star.png', style: 'max-width: 10rem;' %>
+      <%end%>
+    (<%= @convention.average_rating %>)
+    </h4>
+    <br>
+
+    <div class="container">
+      <div>
+        <%= render 'reviews/form'  %>
+    
+      </div>
+      <br>
+      <div>
+        <%= render 'reviews/list'%>
+      </div>
+
+    </div>
+  </div>
+</div>
+

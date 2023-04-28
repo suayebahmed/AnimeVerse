@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_26_235734) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_27_170104) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -83,7 +83,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_26_235734) do
   create_table "conventions", force: :cascade do |t|
     t.string "description"
     t.string "link"
-    t.string "location"
+    t.string "city"
+    t.string "state"
     t.integer "price"
     t.string "title"
     t.datetime "created_at", null: false
@@ -99,15 +100,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_26_235734) do
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
-  create_table "ratings", force: :cascade do |t|
-    t.integer "stars"
+  create_table "reviews", force: :cascade do |t|
     t.text "comment"
-    t.integer "user_id"
-    t.string "review"
+    t.integer "star"
+    t.bigint "convention_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "convention_id"
-    t.index ["convention_id"], name: "index_ratings_on_convention_id"
+    t.index ["convention_id"], name: "index_reviews_on_convention_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -130,5 +131,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_26_235734) do
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
   add_foreign_key "questions", "users"
-  add_foreign_key "ratings", "conventions"
+  add_foreign_key "reviews", "conventions"
+  add_foreign_key "reviews", "users"
 end

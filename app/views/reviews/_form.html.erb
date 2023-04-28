@@ -1,0 +1,9 @@
+<%= bootstrap_form_for([@convention, @convention.reviews.new]) do |f| %>
+
+    <%= f.text_field :star, placeholder: 'Enter a number from 1 to 5'%>
+    <%= f.text_area :comment, placeholder: 'Enter comment', size: "10x3"%>
+
+    <%= f.hidden_field :convention_id, value: @convention.id%>
+
+    <%= f.submit class: 'btn btn-primary btn-sm' %>
+<% end %>

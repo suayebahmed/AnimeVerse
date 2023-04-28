@@ -1,19 +1,28 @@
 Rails.application.routes.draw do
-  resources :conventions
+
+  # Orlena
   get 'home', to: 'pages#home', as: 'home'
   root "pages#home"
 
-
-  post '/rate' => 'rater#create', :as => 'rate'
-
   devise_for :users, controllers: { registrations: 'users/registrations' }
-
+  
   resources :articles do
     resources :comments
   end
 
   
+  # Dionus
+  resources :conventions do
+    resources :reviews, only: [:create, :destroy]
+  end
 
+  get 'conventions/:convention_id/reviews', to: 'reviews#index', as: 'reviews'
+  post 'conventions/:convention_id/reviews', to: 'reviews#create'
+  get 'conventions/:convention_id/reviews/new', to: 'reviews#new', as: 'new_review'
+  get '/conventions/:convention_id/reviews/:id/edit', to: 'reviews#edit', as: 'edit_review'
+  get 'conventions/:convention_id/reviews/:id', to: 'reviews#show', as: 'review'
+  patch '/conventions/:convention_id/reviews/:id', to: 'reviews#update'
+  delete '/conventions/:convention_id/reviews/:id', to: 'reviews#destroy'
 
 
 
@@ -33,20 +42,6 @@ Rails.application.routes.draw do
   get 'lists', to: 'lists#index', as: 'lists'
   get 'lists/:id', to: 'lists#show', as: 'list'
   
-
-
-
-  #Dionas Jordan Route Pages
-
-
-
-  get 'conventions/:convention_id/ratings', to: 'ratings#index', as: 'convention_ratings'
-  post 'conventions/:convention_id/ratings', to: 'ratings#create'
-  get 'conventions/:convention_id/ratings/new', to: 'ratings#new', as: 'new_convention_rating'
-  get '/conventions/:convention_id/ratings/:id/edit', to: 'ratings#edit', as: 'edit_convention_rating'
-  get 'conventions/:convention_id/ratings/:id', to: 'ratings#show', as: 'convention_rating'
-  patch '/conventions/:convention_id/ratings/:id', to: 'ratings#update'
-  delete '/conventions/:convention_id/ratings/:id', to: 'ratings#destroy'
 
 
 
