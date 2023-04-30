@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   # Orlena
   get 'home', to: 'pages#home', as: 'home'
+  get 'profile', to: 'pages#profile', as: 'profile'
   root "pages#home"
 
   devise_for :users, controllers: { registrations: 'users/registrations' }

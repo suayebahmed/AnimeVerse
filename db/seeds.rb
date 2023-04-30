@@ -25,24 +25,40 @@ user1 = User.create!(
     username: 'Orlena',
     password: 'password' 
 )
+user1.avatar.attach(
+    io: File.open('app/assets/images/user1.jpg'),
+    filename: 'user1.jpg'
+    )
 
 user2 = User.create!(
     email: 'suayeb@mail.com',
     username: 'Suayeb',
     password: 'password'
 )
+user2.avatar.attach(
+    io: File.open('app/assets/images/user2.jpg'),
+    filename: 'user2.jpg'
+    )
 
 user3 = User.create!(
-    email: 'dionus@mail.com',
-    username: 'Dionus',
+    email: 'dionas@mail.com',
+    username: 'Dionas',
     password: 'password' 
 )
+user3.avatar.attach(
+    io: File.open('app/assets/images/user3.JPG'),
+    filename: 'user3.JPG'
+    )
 
 user4 = User.create!(
     email: 'omarcus@mail.com',
     username: 'Omarcus',
     password: 'password'
 )
+user4.avatar.attach(
+    io: File.open('app/assets/images/user4.JPG'),
+    filename: 'user4.JPG'
+    )
 
 
 # generate 33 users
