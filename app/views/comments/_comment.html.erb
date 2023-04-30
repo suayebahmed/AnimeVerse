@@ -10,6 +10,15 @@
 
 <div class="card border-info mb-3" style="max-width;">
   <div class="card-body text-info">
+    <% if comment.user.avatar.attached?%>
+      <%= image_tag(comment.user.avatar, style:" display: inline-block; width: 40px; height: 40px; object-fit: cover; border-radius: 15%;") %>
+
+
+    <%else%>
+
+      <%= image_tag 'default-profile-pic.png', style:" display: inline-block; width: 40px; height: 40px; object-fit: cover;  border-radius: 15%;" %>
+   
+    <% end %>
     <b><%= comment.user.username %></b> : 
     <div style="white-space: pre-line;">
       <%= comment.body%>
