@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-    before_action :authenticate_user!, except: [:index]
+    before_action :authenticate_user!
     before_action :require_permission, except: [:index, :show, :new, :create]
 
     def require_permission

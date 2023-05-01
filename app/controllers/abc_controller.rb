@@ -1,8 +1,8 @@
 class AbcController < ApplicationController
-
-def index 
-    @lists = Anime.order(:title)
-    render :index
-end
+    before_action :authenticate_user!
+    def index 
+        @lists = Anime.order(:title)
+        render :index
+    end
 
 end
