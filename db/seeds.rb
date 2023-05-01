@@ -174,7 +174,26 @@ q2_answer1 = Answer.create!(
     creator: user2
 )
 
+(100..105).each do |id|
+    Question.create!(
+        id: id,
+        user_id: rand(50..100),
+        title: Faker::Lorem.question(word_count: 10),
+        desc: Faker::Lorem.paragraph(sentence_count: 3),
+        created_at: Faker::Date.between(from: 1.year.ago, to: Date.today)
+    )
+end
 (100..115).each do |id|
+    Answer.create!(
+        id: id,
+        user_id: rand(50..100),
+        title: Faker::Lorem.sentence,
+        question_id: rand(100..105),
+        created_at: Faker::Date.between(from: 1.year.ago, to: Date.today)
+    )
+end
+
+(116..125).each do |id|
     Answer.create!(
         id: id,
         user_id: rand(50..100),

@@ -15,7 +15,15 @@
             </ul> -->
             <div class="card mb-4 p-3">
                 <div class="card-body">
-                    <p><%= q.creator.username %></p>
+                    <p>
+                        <% if q.creator.avatar.attached?%>
+                            <%= image_tag(q.creator.avatar, style:" display: inline-block; width: 40px; height: 40px; object-fit: cover; border-radius: 15%;") %>
+                        <%else%>
+                            <%= image_tag 'default-profile-pic.png', style:" display: inline-block; width: 40px; height: 40px; object-fit: cover;  border-radius: 15%;" %>
+                        <% end %>
+                    
+                        <%= q.creator.username %>
+                    </p>
                     <h4 class="card-title"><%= q.title %></h4>
                     <%# <p class="card-text"><%= q.desc</p>  %>
                     <%= link_to 'Show', qa_show_path(q), class: "btn btn-outline-primary rounded" %>
