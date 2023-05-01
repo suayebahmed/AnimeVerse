@@ -33,8 +33,8 @@ user2 = User.create!(
 )
 
 user3 = User.create!(
-    email: 'dionus@mail.com',
-    username: 'Dionus',
+    email: 'dio@mail.com',
+    username: 'Dio',
     password: 'password' 
 )
 

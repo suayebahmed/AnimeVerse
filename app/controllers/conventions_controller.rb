@@ -29,7 +29,7 @@ class ConventionsController < ApplicationController
 
     respond_to do |format|
       if @convention.save
-        format.html { redirect_to convention_url(@convention), notice: "Convention was successfully created." }
+        format.html { redirect_to convention_url(@convention), notice: "Another Convention was successfully created." }
         format.json { render :show, status: :created, location: @convention }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -56,7 +56,7 @@ class ConventionsController < ApplicationController
     @convention.destroy
 
     respond_to do |format|
-      format.html { redirect_to conventions_url, notice: "Convention was successfully destroyed." }
+      format.html { redirect_to conventions_url, notice: "Convention was BLAMMED." }
       format.json { head :no_content }
     end
   end

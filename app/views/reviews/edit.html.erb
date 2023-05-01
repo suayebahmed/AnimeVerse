@@ -1,6 +1,6 @@
 <%= bootstrap_form_for([@convention, @review]) do |f| %>
     <%= f.text_field :star, placeholder: 'Enter a number from 1 to 5'%>
-    <%= f.text_area :comment, placeholder: 'Enter comment' %>
+    <%= f.text_area :comment, placeholder: 'Enter your comment' %>
     <%= f.submit class: 'btn btn-primary btn-sm' %>
   
 <% end %>
