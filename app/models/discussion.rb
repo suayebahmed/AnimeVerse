@@ -28,7 +28,7 @@ class Discussion < ApplicationRecord
 
   has_many(
     :quizzes,
-    class_name:  'Quiz',
+    class_name:  'Anime',
     foreign_key: 'user_id',
     inverse_of:  :creator
   )
