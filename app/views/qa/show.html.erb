@@ -29,6 +29,11 @@
         <div class="d-flex justify-content-between">
             <div class="d-inline justify-content-evenly">
                 <p>
+                    <% if answer.creator.avatar.attached?%>
+                        <%= image_tag(answer.creator.avatar, style:" display: inline-block; width: 40px; height: 40px; object-fit: cover; border-radius: 15%;") %>
+                    <%else%>
+                        <%= image_tag 'default-profile-pic.png', style:" display: inline-block; width: 40px; height: 40px; object-fit: cover;  border-radius: 15%;" %>
+                    <% end %>
                     <%= answer.creator.username %>
                 </p>
                 <p class="lead">
