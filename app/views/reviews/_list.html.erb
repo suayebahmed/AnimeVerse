@@ -4,11 +4,20 @@
 
 
         <div class="row">
-            <div class="col-md-1">
+            <div class="col-md-2">
+                <% if r.user.avatar.attached?%>
+                    <%= image_tag(r.user.avatar, style:" display: inline-block; width: 40px; height: 40px; object-fit: cover; border-radius: 15%;") %>
+
+
+                <%else%>
+
+                    <%= image_tag 'default-profile-pic.png', style:" display: inline-block; width: 40px; height: 40px; object-fit: cover;  border-radius: 15%;" %>
+            
+                <% end %>           
                 <strong> <%= r.user.username %> </strong>
             </div>
 
-            <div class="col-md-11">
+            <div class="col-md-10">
                 <div>
                     <% if r.star == 5 %>
                         <%= image_tag '5-star.png', style: 'max-width: 7rem;' %>

@@ -14,11 +14,11 @@
 
 
   <div>
-    <%= form.text_field :title, placeholder: 'Enter title here' %>
+    <%= form.text_field :title, :required => 'required', placeholder: 'Enter title here' %>
   </div>
 
   <div>
-    <%= form.text_area :description, placeholder: "Description", size: "10x5" %>
+    <%= form.text_area :description, :required => 'required', placeholder: "Description", size: "10x5" %>
   </div>
 
   <div>
@@ -26,7 +26,7 @@
   </div>
 
   <div>
-    <%= form.text_field :state, placeholder: 'Enter a valid state abbreviation (ex: TN)' %>
+    <%= form.text_field :state, :required => 'required',  placeholder: 'Enter a valid state abbreviation (ex: TN)' %>
   </div>
   
   <div>

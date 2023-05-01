@@ -3,7 +3,8 @@ class QaController < ApplicationController
     before_action :require_permission, except: [:index, :show, :new, :create]
 
     def require_permission
-        if Question.find(params[:id]).creator != current_user
+        # if Question.find(params[:id]).creator != current_user
+        unless Question.find(params[:id]).creator == current_user || current_user == User.find(1)
             flash[:error] = 'You do not have permission to do that.'
             redirect_to qa_path
         end
@@ -26,7 +27,10 @@ class QaController < ApplicationController
 
     def create
         @question = current_user.questions.build(params.require(:question).permit(:title, :desc))
-        if @question.save
+        if @question.title.blank? || @question.desc.blank?
+            flash[:error] = "Post content cannot be empty"
+            render :new
+        elsif @question.save
             flash[:success] = 'New Question successfully added!'
             redirect_to qa_url
         else

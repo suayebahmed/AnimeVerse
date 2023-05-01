@@ -12,11 +12,11 @@
   <% end %>
 
   <div>
-    <%= form.text_field :title, placeholder: 'Enter title here' %>
+    <%= form.text_field :title, :required => 'required', placeholder: 'Enter title here' %>
   </div>
 
   <div>
-    <%= form.text_area :body, placeholder: "Description", size: "10x5" %>
+    <%= form.text_area :body, :required => 'required', placeholder: "Description", size: "10x5" %>
   </div>
 
   <div>

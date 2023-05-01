@@ -25,28 +25,45 @@ user1 = User.create!(
     username: 'Orlena',
     password: 'password' 
 )
+user1.avatar.attach(
+    io: File.open('app/assets/images/user1.jpg'),
+    filename: 'user1.jpg'
+    )
 
 user2 = User.create!(
     email: 'suayeb@mail.com',
     username: 'Suayeb',
     password: 'password'
 )
+user2.avatar.attach(
+    io: File.open('app/assets/images/user2.jpg'),
+    filename: 'user2.jpg'
+    )
 
 user3 = User.create!(
+
     email: 'dio@mail.com',
     username: 'Dio',
     password: 'password' 
 )
+user3.avatar.attach(
+    io: File.open('app/assets/images/user3.JPG'),
+    filename: 'user3.JPG'
+    )
 
 user4 = User.create!(
     email: 'omarcus@mail.com',
     username: 'Omarcus',
     password: 'password'
 )
+user4.avatar.attach(
+    io: File.open('app/assets/images/user4.JPG'),
+    filename: 'user4.JPG'
+    )
 
 
-# generate 33 users
-(7..40).each do |id|
+# generate 50 users
+(50..100).each do |id|
     User.create!(
 # each user is assigned an id from 7-40
         id: id, 
@@ -111,13 +128,21 @@ filename: 'a_seed-04.jpg'
 (200..250).each do |id|
     Comment.create!(
         id: id,
-        user_id: rand(1..40),
+        user_id: rand(50..100),
         body: Faker::Lorem.sentence,
         article_id: rand(1..4),
         created_at: Faker::Date.between(from: 1.year.ago, to: Date.today)
     )
 end
-
+(251..261).each do |id|
+    Comment.create!(
+        id: id,
+        user_id: rand(1..5),
+        body: Faker::Lorem.sentence,
+        article_id: rand(1..4),
+        created_at: Faker::Date.between(from: 1.year.ago, to: Date.today)
+    )
+end
 
 
 # Questions Seed
@@ -150,6 +175,15 @@ q2_answer1 = Answer.create!(
     creator: user2
 )
 
+(100..115).each do |id|
+    Answer.create!(
+        id: id,
+        user_id: rand(50..100),
+        title: Faker::Lorem.sentence,
+        question_id: rand(1..2),
+        created_at: Faker::Date.between(from: 1.year.ago, to: Date.today)
+    )
+end
 
 
 
@@ -264,10 +298,10 @@ dragcon.image.attach(
 
 
 
-(300..320).each do |id|
+(300..340).each do |id|
     Review.create!(
         id: id,
-        user_id: Faker::Number.unique.between(from: 1, to: 40),
+        user_id: Faker::Number.unique.between(from: 50, to: 100 ),
         star: rand(1..5),
         comment: Faker::Lorem.sentence,
         convention_id: rand(1..5),
