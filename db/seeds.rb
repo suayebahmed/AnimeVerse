@@ -63,7 +63,7 @@ user4.avatar.attach(
 
 
 # generate 50 users
-(50..100).each do |id|
+(1050..1100).each do |id|
     User.create!(
 # each user is assigned an id from 7-40
         id: id, 
@@ -128,7 +128,7 @@ filename: 'a_seed-04.jpg'
 (200..250).each do |id|
     Comment.create!(
         id: id,
-        user_id: rand(50..100),
+        user_id: rand(1050..1100),
         body: Faker::Lorem.sentence,
         article_id: rand(1..4),
         created_at: Faker::Date.between(from: 1.year.ago, to: Date.today)
@@ -178,7 +178,7 @@ q2_answer1 = Answer.create!(
 (100..105).each do |id|
     Question.create!(
         id: id,
-        user_id: rand(50..100),
+        user_id: rand(1050..1100),
         title: Faker::Lorem.question(word_count: 10),
         desc: Faker::Lorem.paragraph(sentence_count: 3),
         created_at: Faker::Date.between(from: 1.year.ago, to: Date.today)
@@ -187,7 +187,7 @@ end
 (100..115).each do |id|
     Answer.create!(
         id: id,
-        user_id: rand(50..100),
+        user_id: rand(1050..1100),
         title: Faker::Lorem.sentence,
         question_id: rand(100..105),
         created_at: Faker::Date.between(from: 1.year.ago, to: Date.today)
@@ -197,7 +197,7 @@ end
 (116..125).each do |id|
     Answer.create!(
         id: id,
-        user_id: rand(50..100),
+        user_id: rand(1050..1100),
         title: Faker::Lorem.sentence,
         question_id: rand(1..2),
         created_at: Faker::Date.between(from: 1.year.ago, to: Date.today)
@@ -342,7 +342,7 @@ dragcon.image.attach(
 (300..340).each do |id|
     Review.create!(
         id: id,
-        user_id: Faker::Number.unique.between(from: 50, to: 100 ),
+        user_id: Faker::Number.unique.between(from: 1050, to: 1100 ),
         star: rand(1..5),
         comment: Faker::Lorem.sentence,
         convention_id: rand(1..5),
