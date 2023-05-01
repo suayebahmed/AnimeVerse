@@ -1,0 +1,15 @@
+<h1>Add New Rating</h1>
+<%= bootstrap_form_with model: @discussion, method: :post, url: list_discussions_path(@list), data: { turbo: false } do |f| %>
+  
+  <%= f.text_field :discus %>
+  <%= f.submit %>
+
+<% end %>
+
+<p class="mt-3">
+  <%= link_to 'Cancel', list_discussions_path(@list), class: 'btn btn-outline-secondary' %>
+</p>
+
+<p>
+  <%= link_to "Anime", lists_path, class: "btn btn-secondary"%>
+</p>

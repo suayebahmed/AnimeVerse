@@ -1,0 +1,13 @@
+<h1><%= @list.title %></h1>
+<ul>
+  <li class="text-success">
+    <%= @list.author %>
+  </li>
+  <li class="text-danger">
+    <%= @list.ratings %>
+  </li>
+</ul>
+<p>
+  <%= link_to 'Back to Ratings', list_discussions_path(@list), class: 'btn btn-outline-secondary' %>
+</p>
+

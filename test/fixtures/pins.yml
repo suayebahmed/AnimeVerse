@@ -1,0 +1,15 @@
+# == Schema Information
+#
+# Table name: pins
+#
+#  id         :bigint           not null, primary key
+#  titlr      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  titlr: MyString
+
+two:
+  titlr: MyString

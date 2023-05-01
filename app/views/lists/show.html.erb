@@ -1,4 +1,7 @@
 <h1><b><%= @list.title %></b></h1>
+
+<p>Created by: <%= @list.creator.email %></p>
+
 <p>
   <b>Summary: </b><%= @list.summary %>
 </p>
@@ -10,4 +13,12 @@
 </p>
 <p>
   <b>Ratings: </b><%= @list.ratings %>
+</p>
+
+<p>
+  <%= link_to 'More Ratings', list_discussions_path(@list), class: 'btn btn-secondary' %>
+</p>
+
+<p>
+  <%= link_to "Anime", lists_path, class: "btn btn-secondary"%>
 </p>
