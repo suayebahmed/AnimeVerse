@@ -7,7 +7,7 @@
 #  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  user_id    :bigint
+#  user_id    :bigint           not null
 #
 # Indexes
 #
@@ -25,6 +25,7 @@ class Question < ApplicationRecord
         :creator,
         class_name:  'User',
         foreign_key: 'user_id',
-        inverse_of:  :questions
+        inverse_of:  :questions,
+        dependent: :destroy
   )
 end
