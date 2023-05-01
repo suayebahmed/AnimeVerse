@@ -11,7 +11,7 @@ class QaController < ApplicationController
     end
 
     def index
-        @questions = Question.all
+        @questions = Question.order(created_at: :desc)
         render :index
     end
 

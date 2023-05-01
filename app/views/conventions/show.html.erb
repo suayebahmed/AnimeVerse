@@ -12,6 +12,8 @@
 <div>
 <% if @convention.image.attached? %>
   <%= image_tag(@convention.image, style: "height: 300px", class: 'd-block mx-auto')%>
+<%else%>
+  <h1><%= @convention.title%></h1>
 <%end%>
 </div>
 

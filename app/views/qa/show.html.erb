@@ -2,7 +2,15 @@
 
 <div class="jumbotron jumbotron-fluid border border-secondary rounded p-4 border-3 mb-3">
     <div class="container p-3">
-        <p><%= @question.creator.username %></p>
+        <p>
+            <% if @question.creator.avatar.attached?%>
+                <%= image_tag(@question.creator.avatar, style:" display: inline-block; width: 40px; height: 40px; object-fit: cover; border-radius: 15%;") %>
+            <%else%>
+                <%= image_tag 'default-profile-pic.png', style:" display: inline-block; width: 40px; height: 40px; object-fit: cover;  border-radius: 15%;" %>
+            <% end %>
+                    
+            <%= @question.creator.username %>
+        </p>
         <h2 class="display-4"><%= @question.title %></h2>
         <p class="lead"><%= @question.desc %></p>
     </div>
