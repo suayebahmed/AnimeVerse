@@ -1,0 +1,30 @@
+<h1>Ratings</h1>
+<table class="table table-striped table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Ratings</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @discussions.each do |discussion| %>
+      <tr>   
+        <td><%= discussion.discus %></td>
+        <td class="text-nowrap">
+        <% if @list.creator == current_user %>
+          <%= button_to 'Delete', list_discussion_path(@list, discussion), method: :delete, data: { turbo: false }, class: 'btn btn-outline-secondary btn-sm', form: { class: 'd-inline' } %>
+        <%# <%= link_to 'show', list_discussion_path(@list, discussion), class: 'btn btn-sm btn-outline-secondary' %> 
+        <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p>
+  <%= link_to 'Back to anime', list_path(@list), class: 'btn btn-outline-secondary' %>
+</p>
+
+<p>
+  <%= link_to "New Rating", new_list_discussion_path(@list), class: "btn btn-secondary"%>
+</p>

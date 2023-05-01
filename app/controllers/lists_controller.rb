@@ -1,5 +1,13 @@
 class ListsController < ApplicationController
     before_action :authenticate_user!
+    before_action :require_permission, except: [:index, :show, :new, :create]
+
+    def require_permission
+      if Anime.find(params[:id]).creator != current_user
+        flash[:error] = 'You do not have permission to do that.'
+        redirect_to lists_path
+      end
+    end
 
     def index
         @lists = Anime.order(:genre)
@@ -17,7 +25,7 @@ class ListsController < ApplicationController
     end  
 
     def create
-        @list = Anime.new(params.require(:anime).permit(:title, :summary, :author, :genre, :ratings))        
+        @list = current_user.lists.build(params.require(:anime).permit(:title, :summary, :author, :genre, :ratings))        
         if @list.title.blank? || @list.summary.blank?
             flash[:error] = 'Anime creation failed'
             render :new

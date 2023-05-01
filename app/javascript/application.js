@@ -16,3 +16,5 @@ document.addEventListener("turbo:load", () => {
 document.addEventListener("turbo:load", () => {
   autosize(document.querySelectorAll('textarea'))
 })
+import "trix"
+import "@rails/actiontext"

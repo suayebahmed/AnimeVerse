@@ -153,46 +153,68 @@ q2_answer1 = Answer.create!(
 
 
 
-Anime.create!(
+anime1 = Anime.create!(
     title:  'Bleach',
     summary: 'It follows the adventures of a teenager Ichigo Kurosaki, who inherits his parents destiny after he obtains the powers of a Soul Reaper—a death personification similar to the Grim Reaper—from another Soul Reaper, Rukia Kuchiki.',
     author: 'Noriyuki Abe',
     genre: 'Adventure, Supernatural',
     ratings: 'If you love good old shounen fights, then Bleach is for you. Im watching this after 17 years and was quite impressed with how well the story turned out even though I find it harder to get into older looking anime. I regret not finding it sooner and cherishing the impact that it would have created in my life.',
+    creator:     admin
 )
 
-Anime.create!(
+anime1_d1 = Discussion.create!(
+    title: 'Bleach',
+    discus: 'The first few seasons of bleach are, in my honest opinion, amazing. The further down you get with the seasons though, they just get slightly worse: the art work is less detailed, the character development gets more basic, and it feels like it could have done much better. Dont get me wrong, its still a good anime, but you can tell that the work was rushed to a degree in the later seasons. 10/10 for the first few seasons, 7.2/10 for the later seasons.',
+    anime: anime1
+)
+
+anime1_d2 = Discussion.create!(
+    title: 'Bleach',
+    discus: 'When i first heard the name bleach on Animax i, like many people thought it was something weird but my take on it did a full 180 when i started watching it. It opened an entire new dimension to me for what an anime can be . It made me laugh, cry, rage, and made me feel all sorts of things i didnt expect form an anime at the time. I was in for a further surprise when i actually read the manga and realized the true potential and brilliance of TIte Kubo',
+    anime: anime1
+)
+
+anime1_d3 = Discussion.create!(
+    title: 'Bleach',
+    discus: 'This anime is mid',
+    anime: anime1
+)
+
+anime2 = Anime.create!(
     title:  'Full Metal Alchemist',
     summary: 'Set in the early 20th century, in a fictional universe in which alchemy is a widely practiced science, the series follows the journey of two alchemist brothers, Edward and Alphonse Elric, who are searching for the philosophers stone to restore their bodies after a failed attempt to bring their mother back to life',
     author: 'Bones Studios',
     genre: 'Sci-fi and Fantasy',
     ratings: 'This is, without a doubt, the greatest TV show of all time, not even for just anime. ',
+    creator:     admin
 )
 
-Anime.create!(
+anime3 = Anime.create!(
     title:  'Hunter x Hunter',
     summary: 'The story focuses on a young boy named Gon Freecss who discovers that his father, who left him at a young age, is actually a world-renowned Hunter, a licensed professional who specializes in fantastical pursuits such as locating rare or unidentified animal species, treasure hunting, or surveying unexplored enclaves.',
     author: 'Shueisha',
     genre: 'Adventure, Fantasy, Martial arts',
     ratings: 'I couldnt get past the continuous lazy writing plus how they destroyed a character as cool as Killua who basically turns into Gons pet by season 5, so there was no way I was going to watch 60 more episodes of this. I wouldnt recommend this series.',
+    creator:     admin
 )
 
-Anime.create!(
+anime4 = Anime.create!(
     title:  'Demon Slayer',
     summary: 'A boy raised by boars, who wears a boars head, boards the Infinity Train on a new mission with the Flame Pillar along with another boy who reveals his true power when he sleeps. Their mission is to defeat a demon who has been tormenting people and killing the demon slayers who oppose it.',
     author: 'Koyoharu Gotouge',
     genre: 'Adventure, Dark, Fantasy, Martial Arts',
     ratings: 'Everything has flaws in it and this show has so much flaws! Starting with good thing about this anime is that it has a great animation of its action scene which no one can deny that they are amazing.',
+    creator:     admin
 )
 
-Anime.create!(
+anime5 = Anime.create!(
     title:  'Jujutsu Kaisen',
     summary: 'Yuji Itadori, a kind-hearted teenager, joins his schools Occult Club for fun, but discovers that its members are actual sorcerers who can manipulate the energy between beings for their own use. He hears about a cursed talisman - the finger of Sukuna, a demon - and its being targeted by other cursed beings.',
     author: 'Gege Akutami',
     genre: 'Dark, Fantasy, Adventure, Supernatural',
     ratings: 'GO WATCH IT OH . MY . GODNESS IT IS SOOO GOOD I CANNOT EVEN BEGIN FO TO TELL YOU !!! The animation is wonderful plus the voice acting and the characters are wonderful .',
+    creator:     admin
 )
-
 
 
 anime_blues = Convention.create!(

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  resources :pins
 
   # Omarcus
   post '/rate' => 'rater#create', :as => 'rate'
-  
 
   # Orlena
   get 'home', to: 'pages#home', as: 'home'
@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   delete 'qa/:id', to: 'qa#destroy'
 
 
-  # Omarcus Swims Jr 
+  # Omarcus Swims Jr routes 
   get 'lists', to: 'lists#index', as: 'lists'
   post 'lists', to: 'lists#create'
   get 'lists/new', to: 'lists#new', as: 'new_list'
@@ -51,6 +51,12 @@ Rails.application.routes.draw do
   
   get 'abc', to: 'abc#index', as: 'abc'
   get 'author', to: 'author#index', as: 'author'
+
+  get 'lists/:anime_id/discussions', to: 'discussions#index', as: 'list_discussions'
+  post 'lists/:anime_id/discussions', to: 'discussions#create'
+  get 'lists/:anime_id/discussions/new', to: 'discussions#new', as: 'new_list_discussion'
+  get 'lists/:anime_id/discussions/:id', to: 'discussions#show', as: 'list_discussion'
+  delete '/lists/:anime_id/discussions/:id', to: 'discussions#destroy'
 
 
   # Suayeb Ahmed Answer page routes

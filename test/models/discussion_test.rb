@@ -1,28 +1,25 @@
 # == Schema Information
 #
-# Table name: animes
+# Table name: discussions
 #
 #  id         :bigint           not null, primary key
-#  author     :string
-#  genre      :string
-#  ratings    :string
-#  summary    :string
+#  discus     :string
 #  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  user_id    :bigint
+#  anime_id   :bigint
 #
 # Indexes
 #
-#  index_animes_on_user_id  (user_id)
+#  index_discussions_on_anime_id  (anime_id)
 #
 # Foreign Keys
 #
-#  fk_rails_...  (user_id => users.id)
+#  fk_rails_...  (anime_id => animes.id)
 #
 require "test_helper"
 
-class AnimeTest < ActiveSupport::TestCase
+class DiscussionTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
