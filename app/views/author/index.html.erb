@@ -17,16 +17,31 @@
       <tr>
         <td><%= link_to list.title, list_path(list) %></td>
         <td><%= list.author %></td>
+
         <% if list.creator == current_user %>
           <td><%= link_to "Edit", edit_list_path(list), class: 'btn btn-sm btn-primary' %></td>
           <td><%= button_to "Delete", list_path(list), method: :delete, data: { turbo: false }, class: "btn btn-sm btn-danger" %></td>
         <% end %>  
+
+        <% if current_user && current_user.email == 'admin@mail.com' %>
+          <td><%= link_to "Edit", edit_list_path(list), class: 'btn btn-sm btn-primary' %></td>
+          <td><%= button_to "Delete", list_path(list), method: :delete, data: { turbo: false }, class: "btn btn-sm btn-danger" %></td>
+        <%end%>
+
       </tr>
     <% end %>
   </tbody>
 </table>
 
+
 <%# <p>
   <%= link_to "Create New Anime", new_list_path, class: 'btn btn-primary' %>
 
+
+
+<% if current_user && current_user.email == 'admin@mail.com' %>
+  <p>
+    <%= link_to "Create New Anime", new_list_path, class: 'btn btn-primary' %>
+  </p>
+<%end%>
 
