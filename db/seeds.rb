@@ -41,8 +41,9 @@ user2.avatar.attach(
     )
 
 user3 = User.create!(
-    email: 'dionas@mail.com',
-    username: 'Dionas',
+
+    email: 'dio@mail.com',
+    username: 'Dio',
     password: 'password' 
 )
 user3.avatar.attach(
