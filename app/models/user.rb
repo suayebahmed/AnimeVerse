@@ -48,7 +48,8 @@ has_many(
     :animes,
     class_name:  'Anime',
     foreign_key: 'user_id',
-    inverse_of:  :creator
+    inverse_of:  :creator,
+    dependent: :destroy
   )
 
 end
