@@ -67,7 +67,7 @@ user4.avatar.attach(
     User.create!(
 # each user is assigned an id from 7-40
         id: id, 
-        email: Faker::Internet.email(domain: 'mail.com'),
+        email: Faker::Internet.unique.email(domain: 'mail.com'),
         username: Faker::Name.name,
 # issue each user the same password
         password: "password", 
@@ -206,7 +206,7 @@ end
 
 
 
-anime1 = Anime.create!(
+Anime.create!(
     title:  'Bleach',
     summary: 'It follows the adventures of a teenager Ichigo Kurosaki, who inherits his parents destiny after he obtains the powers of a Soul Reaper—a death personification similar to the Grim Reaper—from another Soul Reaper, Rukia Kuchiki.',
     author: 'Noriyuki Abe',
@@ -216,24 +216,24 @@ anime1 = Anime.create!(
 )
 
 anime1_d1 = Discussion.create!(
-    title: 'Bleach',
     discus: 'The first few seasons of bleach are, in my honest opinion, amazing. The further down you get with the seasons though, they just get slightly worse: the art work is less detailed, the character development gets more basic, and it feels like it could have done much better. Dont get me wrong, its still a good anime, but you can tell that the work was rushed to a degree in the later seasons. 10/10 for the first few seasons, 7.2/10 for the later seasons.',
-    anime: anime1
+    anime_id: 1,
+    user_id: 3
 )
 
 anime1_d2 = Discussion.create!(
-    title: 'Bleach',
     discus: 'When i first heard the name bleach on Animax i, like many people thought it was something weird but my take on it did a full 180 when i started watching it. It opened an entire new dimension to me for what an anime can be . It made me laugh, cry, rage, and made me feel all sorts of things i didnt expect form an anime at the time. I was in for a further surprise when i actually read the manga and realized the true potential and brilliance of TIte Kubo',
-    anime: anime1
+    anime_id: 1,
+    user_id: 4
 )
 
 anime1_d3 = Discussion.create!(
-    title: 'Bleach',
     discus: 'This anime is mid',
-    anime: anime1
+    anime_id: 1,
+    user_id: 2
 )
 
-anime2 = Anime.create!(
+Anime.create!(
     title:  'Full Metal Alchemist',
     summary: 'Set in the early 20th century, in a fictional universe in which alchemy is a widely practiced science, the series follows the journey of two alchemist brothers, Edward and Alphonse Elric, who are searching for the philosophers stone to restore their bodies after a failed attempt to bring their mother back to life',
     author: 'Bones Studios',
@@ -242,7 +242,7 @@ anime2 = Anime.create!(
     creator:     admin
 )
 
-anime3 = Anime.create!(
+Anime.create!(
     title:  'Hunter x Hunter',
     summary: 'The story focuses on a young boy named Gon Freecss who discovers that his father, who left him at a young age, is actually a world-renowned Hunter, a licensed professional who specializes in fantastical pursuits such as locating rare or unidentified animal species, treasure hunting, or surveying unexplored enclaves.',
     author: 'Shueisha',
@@ -251,7 +251,7 @@ anime3 = Anime.create!(
     creator:     admin
 )
 
-anime4 = Anime.create!(
+Anime.create!(
     title:  'Demon Slayer',
     summary: 'A boy raised by boars, who wears a boars head, boards the Infinity Train on a new mission with the Flame Pillar along with another boy who reveals his true power when he sleeps. Their mission is to defeat a demon who has been tormenting people and killing the demon slayers who oppose it.',
     author: 'Koyoharu Gotouge',
@@ -260,7 +260,7 @@ anime4 = Anime.create!(
     creator:     admin
 )
 
-anime5 = Anime.create!(
+Anime.create!(
     title:  'Jujutsu Kaisen',
     summary: 'Yuji Itadori, a kind-hearted teenager, joins his schools Occult Club for fun, but discovers that its members are actual sorcerers who can manipulate the energy between beings for their own use. He hears about a cursed talisman - the finger of Sukuna, a demon - and its being targeted by other cursed beings.',
     author: 'Gege Akutami',
@@ -268,6 +268,17 @@ anime5 = Anime.create!(
     ratings: 'GO WATCH IT OH . MY . GODNESS IT IS SOOO GOOD I CANNOT EVEN BEGIN FO TO TELL YOU !!! The animation is wonderful plus the voice acting and the characters are wonderful .',
     creator:     admin
 )
+
+
+
+(300..330).each do |id|
+    Discussion.create!(
+        id: id,
+        user_id: rand(1050..1100),
+        discus: Faker::Lorem.question(word_count: 10),
+        anime_id: rand(1..5),
+    )    
+end
 
 
 anime_blues = Convention.create!(

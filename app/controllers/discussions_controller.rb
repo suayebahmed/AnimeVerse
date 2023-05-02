@@ -9,33 +9,36 @@ class DiscussionsController < ApplicationController
   #   end
   # end
 
-    def index
-        @list = Anime.find(params[:anime_id])
-        @discussions = @list.discussions
-        render :index  
-    end
+  def index
+    @list = Anime.find(params[:anime_id])
+    @discussions = @list.discussions
+    render :index  
+  end
 
-    def show
-        @list = Anime.find(params[:anime_id])
-        @discussions = @list.discussions.find(params[:id])
-        render :show
-      end
+  def show
+    @list = Anime.find(params[:anime_id])
+    @discussions = @list.discussions.find(params[:id])
+    render :show
+  end
 
-   def new
+  def new
     @list = Anime.find(params[:anime_id])
     @discussion = Anime.new
     render :new
-   end    
+  end    
 
-   def create
+  def create
     @list = Anime.find(params[:anime_id])
-    @discussion = @list.discussions.build(params.require(:anime).permit(:discus))
+    @discussion = @list.discussions.create(params.require(:anime).permit(:discus))
+
+    @discussion.user_id = current_user.id
+    @discussion.save
+
     if @discussion.save
       flash[:success] = "Comment saved successfully"
       redirect_to list_discussions_url(@list)
     else
-      flash.now[:error] = "Comment could not be saved"
-      render :new, status: :unprocessable_entity
+      render 'new'
     end
   end
 
@@ -45,6 +48,26 @@ class DiscussionsController < ApplicationController
     @discussion.destroy
     flash[:success] = "Comment deleted successfully"
     redirect_to list_discussions_url(@list), status: :see_other
+  end
+
+  def edit
+    @list = Anime.find(params[:anime_id])
+    @discussion = @list.discussions.find(params[:id])
+    render :edit
+    
+  end
+
+  def update
+    @list = Anime.find(params[:anime_id])
+    @discussion = @list.discussions.find(params[:id])
+    if @discussion.update(params[:discussion].permit(:discus))
+      redirect_to list_discussions_url(@list)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+
+
+  
   end
 
 end

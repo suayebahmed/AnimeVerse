@@ -1,15 +1,13 @@
-<h1>Add New Rating</h1>
+
+
+<h1>Chat Message</h1>
 <%= bootstrap_form_with model: @discussion, method: :post, url: list_discussions_path(@list), data: { turbo: false } do |f| %>
   
-  <%= f.text_field :discus %>
-  <%= f.submit %>
+  <%= f.text_area :discus, :required => 'required', placeholder: 'Enter your message', size: "10x3" %>
+  <%= f.submit "Add new", class: 'btn btn-primary btn-sm'%> 
 
 <% end %>
 
 <p class="mt-3">
-  <%= link_to 'Cancel', list_discussions_path(@list), class: 'btn btn-outline-secondary' %>
-</p>
-
-<p>
-  <%= link_to "Anime", lists_path, class: "btn btn-secondary"%>
+  <%= link_to 'Cancel', list_discussions_path(@list), class: 'btn btn-outline-primary btn-sm' %>
 </p>

@@ -55,7 +55,9 @@ Rails.application.routes.draw do
   get 'lists/:anime_id/discussions', to: 'discussions#index', as: 'list_discussions'
   post 'lists/:anime_id/discussions', to: 'discussions#create'
   get 'lists/:anime_id/discussions/new', to: 'discussions#new', as: 'new_list_discussion'
+  get 'lists/:anime_id/discussions/:id/edit', to: 'discussions#edit', as: 'edit_list_discussion'
   get 'lists/:anime_id/discussions/:id', to: 'discussions#show', as: 'list_discussion'
+  patch '/lists/:anime_id/discussions/:id', to: 'discussions#update'
   delete '/lists/:anime_id/discussions/:id', to: 'discussions#destroy'
 
 
