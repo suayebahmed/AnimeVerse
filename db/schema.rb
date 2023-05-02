@@ -104,12 +104,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_01_045455) do
   end
 
   create_table "discussions", force: :cascade do |t|
-    t.string "title"
     t.string "discus"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "anime_id"
     t.index ["anime_id"], name: "index_discussions_on_anime_id"
+    t.index ["user_id"], name: "index_discussions_on_user_id"
   end
 
   create_table "pins", force: :cascade do |t|
@@ -159,6 +160,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_01_045455) do
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
   add_foreign_key "discussions", "animes"
+  add_foreign_key "discussions", "users"
   add_foreign_key "questions", "users"
   add_foreign_key "reviews", "conventions"
   add_foreign_key "reviews", "users"

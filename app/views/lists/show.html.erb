@@ -1,3 +1,5 @@
+<%= link_to "Go back", lists_path%>
+
 <h1><b><%= @list.title %></b></h1>
 
 <p>Created by: <%= @list.creator.email %></p>
@@ -16,9 +18,5 @@
 </p>
 
 <p>
-  <%= link_to 'More Ratings', list_discussions_path(@list), class: 'btn btn-secondary' %>
-</p>
-
-<p>
-  <%= link_to "Anime", lists_path, class: "btn btn-secondary"%>
+  <%= link_to 'Enter Chat Forum', list_discussions_path(@list), class: 'btn btn-primary' %>
 </p>
