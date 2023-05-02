@@ -26,6 +26,5 @@ class Question < ApplicationRecord
         class_name:  'User',
         foreign_key: 'user_id',
         inverse_of:  :questions,
-        dependent: :destroy
   )
 end

@@ -40,7 +40,8 @@ has_many(
     :questions,
     class_name:  'Question',
     foreign_key: 'user_id',
-    inverse_of:  :creator
+    inverse_of:  :creator,
+    dependent: :destroy
   )
 
   has_many(
