@@ -25,7 +25,7 @@ class ListsController < ApplicationController
     end  
 
     def create
-        @list = current_user.lists.build(params.require(:anime).permit(:title, :summary, :author, :genre, :ratings))        
+        @list = current_user.animes.new(params.require(:anime).permit(:title, :summary, :author, :genre, :ratings))        
         if @list.title.blank? || @list.summary.blank?
             flash[:error] = 'Anime creation failed'
             render :new
